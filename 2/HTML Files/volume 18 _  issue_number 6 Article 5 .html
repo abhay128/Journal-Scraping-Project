@@ -1,0 +1,2212 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<title>PlantRGS: A Web Server for the Identification of Most Suitable Candidate Reference Genes for Quantitative Gene Expression Studies in Plants | DNA Research | Oxford Academic</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js" type="text/javascript"></script><script>window.jQuery || document.write('<script src="//oup.silverchair-cdn.com/UI/app/vendor/jquery-2.2.4.js">\x3C/script>')</script><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<!-- Bookmark Icons --><link rel="apple-touch-icon" sizes="180x180" href="//oup.silverchair-cdn.com/UI/app/img/v-637087210721125680/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="//oup.silverchair-cdn.com/UI/app/img/v-637087210721125680/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="//oup.silverchair-cdn.com/UI/app/img/v-637087210721125680/favicon-16x16.png" sizes="16x16">
+<link rel="mask-icon" href="//oup.silverchair-cdn.com/UI/app/img/v-637087210721281881/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="//oup.silverchair-cdn.com/UI/app/img/v-637087210721125680/favicon.ico">
+<link rel="manifest" href="//oup.silverchair-cdn.com/UI/app/img/v-637087210721125680/manifest.json">
+<meta name="msapplication-config" content="//oup.silverchair-cdn.com/UI/app/img/v-637087210721125680/browserconfig.xml">
+<meta name="theme-color" content="#002f65">
+<link rel="stylesheet" type="text/css" href="//oup.silverchair-cdn.com/UI/app/fonts/icons.css">
+<link rel="stylesheet" type="text/css" href="//oup.silverchair-cdn.com/UI/app/css/v-637087213365645952/style.min.css">
+<link rel="stylesheet" type="text/css" href="//oup.silverchair-cdn.com/UI/app/vendor/oupCookiePolicy/css/v-637087210722688166/jquery.fancybox-1.3.4_1.css">
+<link rel="stylesheet" type="text/css" href="//oup.silverchair-cdn.com/UI/app/vendor/jscrollpane/v-637087210722531832/jscrollpane.css">
+<link rel="stylesheet" type="text/css" href="//oup.silverchair-cdn.com/UI/app/vendor/jquery.tablesorter/v-637087210722531832/theme.default.css">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Merriweather:300,400,400italic,700,700italic%7CSource+Sans+Pro:400,400italic,700,700italic">
+<link href="//oup.silverchair-cdn.com/data/SiteBuilderAssetsOriginals/Live/CSS/journals/global.css" rel="stylesheet" type="text/css">
+<link href="//oup.silverchair-cdn.com/data/SiteBuilderAssets/Live/CSS/dnaresearch/Site-1470551617.css" rel="stylesheet" type="text/css">
+<script>
+            (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+            })(window, document, 'script', 'dataLayer', 'GTM-W6DD7HV');
+        </script><script type="text/javascript">
+            var App = App || {};
+            App.LoginUserInfo = {
+                isInstLoggedIn: [1],
+                isIndividualLoggedIn: [0]
+            };
+
+            App.CurrentSubdomain = 'dnaresearch';
+            App.SiteURL = 'academic.oup.com/dnaresearch';
+        </script><link href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css" rel="stylesheet" type="text/css">
+<script type="application/ld+json">
+        {"@context":"http://schema.org","@id":"https://academic.oup.com/dnaresearch/article/18/6/463/477571","@type":"ScholarlyArticle","name":"PlantRGS: A Web Server for the Identification of Most Suitable Candidate Reference Genes for Quantitative Gene Expression Studies in Plants","datePublished":"2011-10-10","isPartOf":{"@id":"https://academic.oup.com/dnaresearch/issue/18/6","@type":"PublicationIssue","issueNumber":"6","datePublished":"2011-12-01","isPartOf":{"@id":"https://academic.oup.com/dnaresearch","@type":"Periodical","name":"DNA Research","issn":["1756-1663"]}},"url":"http://dx.doi.org/10.1093/dnares/dsr032","keywords":["gene expression","reference gene","microarray","normalization","web server"],"inLanguage":"en","copyrightHolder":"Kazusa DNA Research Institute","copyrightYear":"2019","publisher":"Oxford University Press","sameAs":"https://academic.oup.com/dnaresearch/article/18/6/463/477571","author":[{"name":"Patel, Ravi K.","affiliation":"National Institute of Plant Genome Research (NIPGR), Aruna Asaf Ali Marg ,  New Delhi 110 067 ,  India","@type":"Person"},{"name":"Jain, Mukesh","affiliation":"National Institute of Plant Genome Research (NIPGR), Aruna Asaf Ali Marg ,  New Delhi 110 067 ,  India","@type":"Person"}],"description":"Abstract.  Normalization of quantitative gene expression data with a suitable reference gene is essential for accurate and reliable results. However, the availa","pageStart":"463","pageEnd":"470","thumbnailURL":"https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/dnaresearch/Issue/18/6/1/m_cover.gif?Expires=1636312318&Signature=AWzNQfAGHrvrPlcMgNCDZC6qAo8xJdZsVnq2fV8MyHtXU2cBbwgqYsLF4zR1UA2mFA2MTmXisuFXvqXRLyKlRNadiWm3IHhY-zzPq4t5NZzPhzfs1e2DcGGKdGgBaUrie3ZsGcOKyOpGfvta4ezvroxylY8metSB-3ACgIrpjAs5KCRkasQymMF~Js7uP5ewo5nGQtDf~SHAa4vdkk1PM3-iJ03cH~VBGebG1sUNA7b~PMTAInx-hngt-7wdU0jD3~jsAvuvrwBtjEQAkVZGI9r8CQqdTJcvSxSQXa9sgoP5frqumzoddBKgoezeHJ2cYhR4yO~bR3xCC15VklYxYA__&Key-Pair-Id=APKAIE5G5CRDK6RD3PGA","headline":"PlantRGS: A Web Server for the Identification of Most Suitable Candidate Reference Genes for Quantitative Gene Expression Studies in Plants","image":"https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/dnaresearch/Issue/18/6/1/m_cover.gif?Expires=1636312318&Signature=AWzNQfAGHrvrPlcMgNCDZC6qAo8xJdZsVnq2fV8MyHtXU2cBbwgqYsLF4zR1UA2mFA2MTmXisuFXvqXRLyKlRNadiWm3IHhY-zzPq4t5NZzPhzfs1e2DcGGKdGgBaUrie3ZsGcOKyOpGfvta4ezvroxylY8metSB-3ACgIrpjAs5KCRkasQymMF~Js7uP5ewo5nGQtDf~SHAa4vdkk1PM3-iJ03cH~VBGebG1sUNA7b~PMTAInx-hngt-7wdU0jD3~jsAvuvrwBtjEQAkVZGI9r8CQqdTJcvSxSQXa9sgoP5frqumzoddBKgoezeHJ2cYhR4yO~bR3xCC15VklYxYA__&Key-Pair-Id=APKAIE5G5CRDK6RD3PGA"}
+    </script><meta property="og:site_name" content="OUP Academic">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PlantRGS: A Web Server for the Identification of Most Suitable Candidate Reference Genes for Quantitative Gene Expression Studies in Plants">
+<meta property="og:description" content="Abstract.  Normalization of quantitative gene expression data with a suitable reference gene is essential for accurate and reliable results. However, the availa">
+<meta property="og:url" content="https://academic.oup.com/dnaresearch/article/18/6/463/477571">
+<meta property="og:image" content="https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/dnaresearch/Issue/18/6/1/m_cover.gif?Expires=1636312318&amp;Signature=AWzNQfAGHrvrPlcMgNCDZC6qAo8xJdZsVnq2fV8MyHtXU2cBbwgqYsLF4zR1UA2mFA2MTmXisuFXvqXRLyKlRNadiWm3IHhY-zzPq4t5NZzPhzfs1e2DcGGKdGgBaUrie3ZsGcOKyOpGfvta4ezvroxylY8metSB-3ACgIrpjAs5KCRkasQymMF~Js7uP5ewo5nGQtDf~SHAa4vdkk1PM3-iJ03cH~VBGebG1sUNA7b~PMTAInx-hngt-7wdU0jD3~jsAvuvrwBtjEQAkVZGI9r8CQqdTJcvSxSQXa9sgoP5frqumzoddBKgoezeHJ2cYhR4yO~bR3xCC15VklYxYA__&amp;Key-Pair-Id=APKAIE5G5CRDK6RD3PGA">
+<meta property="og:updated_time" content="2011-10-10">
+<meta name="citation_author" content="Patel, Ravi K.">
+<meta name="citation_author_institution" content="National Institute of Plant Genome Research (NIPGR), Aruna Asaf Ali Marg, New Delhi 110 067, India">
+<meta name="citation_author" content="Jain, Mukesh">
+<meta name="citation_author_institution" content="National Institute of Plant Genome Research (NIPGR), Aruna Asaf Ali Marg, New Delhi 110 067, India">
+<meta name="citation_title" content="PlantRGS: A Web Server for the Identification of Most Suitable Candidate Reference Genes for Quantitative Gene Expression Studies in Plants">
+<meta name="citation_firstpage" content="463">
+<meta name="citation_lastpage" content="470">
+<meta name="citation_doi" content="10.1093/dnares/dsr032">
+<meta name="citation_journal_title" content="DNA Research">
+<meta name="citation_journal_abbrev" content="DNA Res">
+<meta name="citation_volume" content="18">
+<meta name="citation_issue" content="6">
+<meta name="citation_publication_date" content="2011/12/01">
+<meta name="citation_issn" content="1340-2838">
+<meta name="citation_publisher" content="Narnia">
+<meta name="citation_reference" content="citation_title=Microarray analysis of the transcriptome as a stepping stone towards understanding biological systems: practical considerations and perspectives; Plant J.;  citation_year=2006;  citation_volume=45;  citation_pages=630-50; ">
+<meta name="citation_reference" content="citation_title=Real-time RT–PCR profiling of over 1400 Arabidopsis transcription factors: unprecedented sensitivity reveals novel root- and shoot-specific genes; Plant J.;  citation_year=2004;  citation_volume=38;  citation_pages=366-79; ">
+<meta name="citation_reference" content="citation_title=Real-time PCR: what relevance to plant studies?; J. Exp. Bot.;  citation_year=2004;  citation_volume=55;  citation_pages=1445-54; ">
+<meta name="citation_reference" content="citation_title=Genome-wide survey and expression analysis suggest diverse roles of glutaredoxin gene family members during development and response to various stimuli in rice; DNA Res.;  citation_year=2010;  citation_volume=17;  citation_pages=353-67; ">
+<meta name="citation_reference" content="citation_title=Quantification of mRNA using real-time RT–PCR; Nat. Protoc.;  citation_year=2006;  citation_volume=1;  citation_pages=1559-82; ">
+<meta name="citation_reference" content="citation_title=Housekeeping genes as internal standards: use and limits; J. Biotechnol.;  citation_year=1999;  citation_volume=75;  citation_pages=291-5; ">
+<meta name="citation_reference" content="citation_title=Effect of experimental treatment on housekeeping gene expression: validation by real-time, quantitative RT–PCR; J. Biochem. Biophys. Methods;  citation_year=2000;  citation_volume=46;  citation_pages=69-81; ">
+<meta name="citation_reference" content="citation_title=Control genes and variability: absence of ubiquitous reference transcripts in diverse mammalian expression studies; Genome Res.;  citation_year=2002;  citation_volume=12;  citation_pages=292-7; ">
+<meta name="citation_reference" content="citation_title=Genome-wide identification and testing of superior reference genes for transcript normalization in Arabidopsis; Plant Physiol.;  citation_year=2005;  citation_volume=139;  citation_pages=5-17; ">
+<meta name="citation_reference" content="citation_title=Housekeeping gene variability in normal and cancerous colorectal, pancreatic, esophageal, gastric and hepatic tissues; Mol. Cell. Probes;  citation_year=2005;  citation_volume=19;  citation_pages=101-9; ">
+<meta name="citation_reference" content="citation_title=The lack of a systematic validation of reference genes: a serious pitfall undervalued in reverse transcription–polymerase chain reaction (RT–PCR) analysis in plants; Plant Biotechnol. J.;  citation_year=2008;  citation_volume=6;  citation_pages=609-18; ">
+<meta name="citation_reference" content="citation_title=Housekeeping gene selection for real-time RT-PCR normalization in potato during biotic and abiotic stress; J. Exp. Bot.;  citation_year=2005;  citation_volume=56;  citation_pages=2907-14; ">
+<meta name="citation_reference" content="citation_title=Validation of housekeeping genes as internal control for studying gene expression in rice by quantitative real-time PCR; Biochem. Biophys. Res. Commun.;  citation_year=2006;  citation_volume=345;  citation_pages=646-51; ">
+<meta name="citation_reference" content="citation_title=Normalisation of real-time RT–PCR gene expression measurements in Arabidopsis thaliana exposed to increased metal concentrations; Planta;  citation_year=2008;  citation_volume=227;  citation_pages=1343-9; ">
+<meta name="citation_reference" content="citation_title=Validation of internal control genes for quantitative gene expression studies in chickpea (Cicer arietinum L.); Biochem. Biophys. Res. Commun.;  citation_year=2010;  citation_volume=396;  citation_pages=283-8; ">
+<meta name="citation_reference" content="citation_title=Identification of four soybean reference genes for gene expression normalization; Plant Genome;  citation_year=2008;  citation_volume=1;  citation_pages=44-54; ">
+<meta name="citation_reference" content="citation_title=Genome-wide identification of novel internal control genes for normalization of gene expression during various stages of development in rice; Plant Sci.;  citation_year=2009;  citation_volume=176;  citation_pages=702-6; ">
+<meta name="citation_reference" content="citation_title=Identification of novel reference genes using multiplatform expression data and their validation for quantitative gene expression analysis; PLoS One;  citation_year=2009;  citation_volume=4;  citation_pages=e6162">
+<meta name="citation_reference" content="citation_title=Defining reference genes in Oryza sativa using organ, development, biotic and abiotic transcriptome datasets; BMC Plant Biol.;  citation_year=2010;  citation_volume=10;  citation_pages=56">
+<meta name="citation_reference" content="citation_title=Accurate normalization of real-time quantitative RT-PCR data by geometric averaging of multiple internal control genes; citation_text=RESEARCH0034; Genome Biol.;  citation_year=2002;  citation_volume=3; ">
+<meta name="citation_reference" content="citation_title=BarleyBase/PLEXdb: a unified expression profiling database for plants and plant pathogens; Methods Mol. Biol.;  citation_year=2007;  citation_volume=406;  citation_pages=347-63; ">
+<meta name="citation_reference" content="citation_title=Evaluation of statistical methods for normalization and differential expression in mRNA-Seq experiments; BMC Bioinformatics;  citation_year=2010;  citation_volume=11;  citation_pages=94">
+<meta name="citation_reference" content="citation_title=Selection of candidate housekeeping controls in tomato plants using EST data; Biotechniques;  citation_year=2003;  citation_volume=35;  citation_pages=740-8; ">
+<meta name="citation_reference" content="citation_title=A sequence-based approach to identify reference genes for gene expression analysis; BMC Med. Genomics;  citation_year=2010;  citation_volume=3;  citation_pages=32">
+<meta name="citation_fulltext_world_readable" content="">
+<meta name="citation_pdf_url" content="https://academic.oup.com/dnaresearch/article-pdf/18/6/463/1291097/dsr032.pdf">
+<meta name="description" content="Abstract.  Normalization of quantitative gene expression data with a suitable reference gene is essential for accurate and reliable results. However, the availa">
+</head>
+<body>
+<div class="widget widget-Hypothesis widget-instance-OUP_Article_Hypothesis">
+        <div id="hypothesis-container">
+</div> 
+    </div>
+    <meta name="citation_xml_url" content="https://academic.oup.com/dnaresearch/article-xml/18/6/463/477571">
+<link rel="canonical" href="https://academic.oup.com/dnaresearch/article/18/6/463/477571">
+<script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script><script>
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+</script><script type="text/javascript">
+                        var gptAdSlots = [];
+                    googletag.cmd.push(function() {
+            
+            var mapping_ad1 = googletag.sizeMapping()
+            .addSize([1024, 0], [[970, 90], [728, 90]])
+            .addSize([768, 0], [728, 90])
+            .addSize([0, 0], [320, 50])
+            .build();
+            gptAdSlots["ad1"] = googletag.defineSlot('/116097782/dnaresearch_Supplement_Ad1',
+                [[970, 90], [728, 90], [320, 50]],
+                'adBlockHeader')
+            .defineSizeMapping(mapping_ad1)
+            .addService(googletag.pubads());
+            
+
+            
+            var mapping_ad2 = googletag.sizeMapping()
+            .addSize([0, 0], [])
+            .addSize([768, 0], [[300, 250], [300, 600], [160, 600]])
+            .build();
+        gptAdSlots["ad2"] = googletag.defineSlot('/116097782/dnaresearch_Supplement_Ad2',
+                [[300, 250], [160, 600], [300, 600]],
+                'adBlockMainBodyTop')
+            .defineSizeMapping(mapping_ad2)
+            .addService(googletag.pubads());
+            
+
+            
+            var mapping_ad3 = googletag.sizeMapping()
+            .addSize([0, 0], [])
+            .addSize([768, 0], [[300, 250], [300, 600], [160, 600]])
+            .build();
+    gptAdSlots["ad3"] = googletag.defineSlot('/116097782/dnaresearch_Supplement_Ad3',
+                [[300, 250], [160, 600], [300, 600]],
+                'adBlockMainBodyBottom')
+            .defineSizeMapping(mapping_ad3)
+            .addService(googletag.pubads());
+            
+
+            
+                var mapping_ad4 = googletag.sizeMapping()
+                .addSize([0, 0], [])
+                .addSize([768, 0], [728, 90])
+                .build();
+    gptAdSlots["ad4"] = googletag.defineSlot('/116097782/dnaresearch_Supplement_Ad4', [728, 90], 'adBlockFooter')
+                .defineSizeMapping(mapping_ad4)
+                .addService(googletag.pubads());
+            
+            googletag.pubads().setTargeting("jnlspage", "article");
+    googletag.pubads().setTargeting("jnlsurl", "dnaresearch/article/18/6/463/477571");
+    googletag.pubads().enableSingleRequest();
+    googletag.pubads().collapseEmptyDivs();
+        });
+        </script><script>
+        var oupcookiepolicy_siteid = "journals";        // the website id
+        var oupcookiepolicy_messagetype = 'implied';                        // type of alert message e.g, implied / explicit
+        var oupcookiepolicy_preferredlanguage = "en";      // preferred language of the website
+        var oupcookiepolicy_impliedmessageclass = 'cookiepolicyimplied';    // the css class for implied alert message
+        var oupcookiepolicy_documentroot = '/';	  			                // the document root the cookie is set to
+    </script><noscript>We use cookies to enhance your experience on our website.By continuing to use our website, you are agreeing to our use of cookies. You can change your cookie settings at any time. <a href="https://global.oup.com/cookiepolicy/"> Find out more</a>
+</noscript>
+    <script type="text/javascript">
+        var NTPT_PGEXTRA= 'event_type=full-text&supplier_tag=SC_Journals&object_type=Article&siteid=dnares&authentication_method=IP&authzrequired=false&account_id=2796125&account_list=2796125,2777753,2779951&authnips=128.235.85.32&doi=10.1093/dnares/dsr032';
+    </script><noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W6DD7HV" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
+        <a href="#main" class="skipnav">Skip to Main Content</a>
+<input id="hdnSiteID" name="hdnSiteID" type="hidden" value="5275"><input id="hdnAdDelaySeconds" name="hdnAdDelaySeconds" type="hidden" value="5000"><input id="hdnAdConfigurationTop" name="hdnAdConfigurationTop" type="hidden" value="default"><input id="hdnAdConfigurationRightRail" name="hdnAdConfigurationRightRail" type="hidden" value="sticky"><div class="master-container js-master-container">
+    <section class="master-header row js-master-header vt-site-page-header"><div class="widget widget-SitePageHeader widget-instance-SitePageHeader">
+        
+    <div class="ad-banner js-ad-banner-header">
+    <div class="widget widget-AdBlock widget-instance-HeaderAd">
+        
+
+<div id="adBlockHeader" style=" ">
+    <script>
+        googletag.cmd.push(function () { googletag.display('adBlockHeader'); });
+    </script>
+</div>
+ 
+    </div>
+
+    </div>
+
+    <div class="oup-header">
+        <div class="center-inner-row">
+            <div class="oup-header-logo">
+                <a href="/">
+                    <img src="//oup.silverchair-cdn.com/UI/app/svg/umbrella/oxford-academic-logo.svg" alt="Oxford University Press" class="oup-header-image"></a>
+            </div>
+
+            <ul class="oup-header-menu account-menu">
+<li class="oup-header-menu-item mobile">
+                    <button href="" class="btn btn-as-icon mobile-dropdown-toggle mobile-search-toggle">
+                        <i class="icon-menu_search"><span class="screenreader-text">Search</span></i>
+                    </button>
+                </li>
+
+                
+                <li class="oup-header-menu-item mobile">
+                    <button href="" class="btn btn-as-icon mobile-dropdown-toggle mobile-account-toggle">
+                        <i class="icon-menu_account"><span class="screenreader-text">Account Menu</span></i>
+                    </button>
+                </li>
+
+                
+                <li class="oup-header-menu-item mobile">
+                    <button href="" class="btn btn-as-icon mobile-dropdown-toggle mobile-nav-toggle">
+                        <i class="icon-menu_hamburger"><span class="screenreader-text">Menu</span></i>
+                    </button>
+                </li>
+
+                
+                    <li class="oup-header-menu-item desktop">
+                        
+                            <a href="" class="dropdown-toggle institution">New Jersey Institute of Technology <i class="icon-general-arrow-filled-down arrow-icon"></i></a>
+                        <div class="dropdown-panel dropdown-panel-institution">
+                            
+                            <div class="dropdown-menu">
+                                <ul>
+<li class="dropdown-institution-item">
+
+New Jersey Institute of Technology
+                                        </li>
+
+                                </ul>
+</div>
+                        </div>
+                    </li>                <li class="oup-header-menu-item desktop">
+                    <a href="" class="dropdown-toggle signin" id="header-account-info-user-fullname">
+                        
+Sign In                        <i class="icon-general-arrow-filled-down arrow-icon"></i>
+                    </a>
+                    <div class="dropdown-panel dropdown-panel-signin dropdown-panel-form">
+                        <div class="spinner"></div>
+                    </div>
+                </li>
+
+                
+                    <li class="oup-header-menu-item desktop"><a href="/my-account/register?siteId=5275&amp;returnUrl=%2fdnaresearch%2farticle%2f18%2f6%2f463%2f477571" class="register">Register</a></li>
+                
+            </ul>
+</div>
+    </div>
+<div class="dropdown-panel-wrap">
+
+    
+    <div class="dropdown-panel mobile-search-dropdown">
+        <div class="mobile-search-inner-wrap">
+            <div class="navbar-search">
+                <div id="MobileMicrositeSearch" class="mobile-microsite-search">
+                    <label for="mobile-navbar-search-filter" class="screenreader-text">Navbar Search Filter</label>
+                    <select class="navbar-search-filter" id="mobile-navbar-search-filter"><optgroup label="Search within this journal">
+<option class="header-search-bar-filters-item" value="Issue">This issue</option>
+<option class="header-search-bar-filters-item" value="">All  DNA Research</option>
+</optgroup>
+<optgroup label="Search beyond this journal"><option class="header-search-bar-filters-item" value="Journals">All  Journals</option></optgroup></select><label for="MobileMicrositeSearchTerm" class="screenreader-text">Mobile Microsite Search Term</label>
+                    <input class="mobile-search-input mobile-microsite-search-term" type="text" maxlength="255" placeholder="Search" id="MobileMicrositeSearchTerm"><span id="MobileMicrositeSearchIcon" class="mobile-microsite-search-icon mobile-search-submit icon-menu_search"></span>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="dropdown-panel mobile-account-dropdown">
+        <ul class="site-menu site-menu-lvl-0">
+<li class="site-menu-item site-menu-lvl-0">
+                <a href="" class="nav-link mobile-account-signin dummy-link" id="header-account-info-user-fullname">
+                    
+Sign In                    <i class="mobile-nav-arrow icon-general_arrow-down"></i>
+                </a>
+                <ul class="site-menu site-menu-lvl-1 individual-menu">
+<li class="dropdown-signin-form">
+                        <div class="spinner"></div>
+                    </li>
+                </ul>
+</li>
+                <li class="site-menu-item site-menu-lvl-0">
+                        <a class="nav-link mobile-account-institution dummy-link">
+                            New Jersey Institute of Technology
+                        </a>
+
+                    <i class="mobile-nav-arrow icon-general_arrow-down"></i>
+                    <ul class="site-menu site-menu-lvl-1">
+<li class="dropdown-institution-item">
+
+New Jersey Institute of Technology
+                            </li>
+
+                        <li class="dropdown-institution-signout">
+                        </li>
+                    </ul>
+</li>
+                            <li class="site-menu-item">
+                    <a href="/my-account/register?siteId=5275&amp;returnUrl=%2fdnaresearch%2farticle%2f18%2f6%2f463%2f477571" class="register nav-link">Register</a>
+                </li>
+        </ul>
+</div>
+    
+    <div class="dropdown-panel mobile-nav-dropdown">
+
+
+    <i class="desktop-nav-arrow icon-general-arrow-filled-down arrow-icon"></i><i class="mobile-nav-arrow icon-general_arrow-down"></i>
+    <ul class="site-menu site-menu-lvl-0">
+<li class="site-menu-item site-menu-lvl-0" id="site-menu-item-1410109">
+            <a href="/dnaresearch/issue" class="nav-link ">Issues</a>
+            
+        </li>
+        <li class="site-menu-item site-menu-lvl-0" id="site-menu-item-1410106">
+            <a href="/dnaresearch/#" class="nav-link dummy-link">More Content</a>
+                <i class="desktop-nav-arrow icon-general-arrow-filled-down arrow-icon"></i><i class="mobile-nav-arrow icon-general_arrow-down"></i>
+    <ul class="site-menu site-menu-lvl-1">
+<li class="site-menu-item site-menu-lvl-1" id="site-menu-item-1410110">
+            <a href="/dnaresearch/advance-articles" class="nav-link ">Advance articles</a>
+            
+        </li>
+        <li class="site-menu-item site-menu-lvl-1" id="site-menu-item-1410111">
+            <a href="https://academic.oup.com/dnaresearch/pages/free_access_articles" class="nav-link ">Editor's Choice</a>
+            
+        </li>
+    </ul>
+</li>
+        <li class="site-menu-item site-menu-lvl-0" id="site-menu-item-1410107">
+            <a href="/dnaresearch/#" class="nav-link dummy-link">Submit</a>
+                <i class="desktop-nav-arrow icon-general-arrow-filled-down arrow-icon"></i><i class="mobile-nav-arrow icon-general_arrow-down"></i>
+    <ul class="site-menu site-menu-lvl-1">
+<li class="site-menu-item site-menu-lvl-1" id="site-menu-item-1410112">
+            <a href="/dnaresearch/pages/Instructions_To_Authors" class="nav-link ">Author Guidelines</a>
+            
+        </li>
+        <li class="site-menu-item site-menu-lvl-1" id="site-menu-item-1410113">
+            <a href="http://mc.manuscriptcentral.com/dnar" class="nav-link ">Submission Site</a>
+            
+        </li>
+        <li class="site-menu-item site-menu-lvl-1" id="site-menu-item-1410114">
+            <a href="/dnaresearch/pages/Instructions_To_Authors" class="nav-link ">Open Access</a>
+            
+        </li>
+    </ul>
+</li>
+        <li class="site-menu-item site-menu-lvl-0" id="site-menu-item-1410115">
+            <a href="/dnaresearch/subscribe" class="nav-link ">Purchase</a>
+            
+        </li>
+        <li class="site-menu-item site-menu-lvl-0" id="site-menu-item-1410116">
+            <a href="/my-account/email-alerts" class="nav-link ">Alerts</a>
+            
+        </li>
+        <li class="site-menu-item site-menu-lvl-0" id="site-menu-item-1410108">
+            <a href="/dnaresearch/#" class="nav-link dummy-link">About</a>
+                <i class="desktop-nav-arrow icon-general-arrow-filled-down arrow-icon"></i><i class="mobile-nav-arrow icon-general_arrow-down"></i>
+    <ul class="site-menu site-menu-lvl-1">
+<li class="site-menu-item site-menu-lvl-1" id="site-menu-item-1410117">
+            <a href="/dnaresearch/pages/About" class="nav-link ">About DNA Research</a>
+            
+        </li>
+        <li class="site-menu-item site-menu-lvl-1" id="site-menu-item-1410118">
+            <a href="http://www.kazusa.or.jp/e/index.html" class="nav-link ">About the Kazusa DNA Research Institute</a>
+            
+        </li>
+        <li class="site-menu-item site-menu-lvl-1" id="site-menu-item-1410119">
+            <a href="/dnaresearch/pages/Editorial_Board" class="nav-link ">Editorial Board</a>
+            
+        </li>
+        <li class="site-menu-item site-menu-lvl-1" id="site-menu-item-1410120">
+            <a href="http://www.oupmediainfo.com/" class="nav-link ">Advertising and Corporate Services</a>
+            
+        </li>
+        <li class="site-menu-item site-menu-lvl-1" id="site-menu-item-1410121">
+            <a href="http://science-and-mathematics-careernetwork.oxfordjournals.org" class="nav-link ">Journals Career Network</a>
+            
+        </li>
+        <li class="site-menu-item site-menu-lvl-1" id="site-menu-item-1410122">
+            <a href="https://academic.oup.com/journals/pages/access_purchase/rights_and_permissions/self_archiving_policy_c" class="nav-link ">Self-Archiving Policy</a>
+            
+        </li>
+        <li class="site-menu-item site-menu-lvl-1" id="site-menu-item-1410123">
+            <a href="http://www.oxfordjournals.org/en/access-purchase/dispatch-dates.html" class="nav-link ">Dispatch Dates</a>
+            
+        </li>
+        <li class="site-menu-item site-menu-lvl-1" id="site-menu-item-1410124">
+            <a href="http://www.kazusa.or.jp/e/index.html" class="nav-link ">Contact Us</a>
+            
+        </li>
+    </ul>
+</li>
+    </ul>
+</div>
+
+</div>
+
+
+    <div class="journal-header journal-bg">
+        <div class="center-inner-row">
+                            <a href="/dnaresearch" class="journal-logo-container">
+                    <img id="logo-DNAResearch" class="journal-logo" src="//oup.silverchair-cdn.com/data/SiteBuilderAssets/Live/Images/dnaresearch/dnaresearch_title-2068071465.svg" alt="DNA Research"></a>
+
+            <div class="society-logo-block">
+                    <div class="society-block-inner-wrap">
+                            <a href="http://www.kazusa.or.jp/e/index.html" target="" class="society-logo-container">
+                                <img id="logo-KazusaDNAResearchInstitute" class="society-logo" src="//oup.silverchair-cdn.com/data/SiteBuilderAssets/Live/Images/dnaresearch/dnaresearch_h1-805551131.svg" alt="Kazusa DNA Research Institute"></a>
+                                            </div>            </div> 
+        </div>
+    </div>
+<div class="navbar">
+    <div class="center-inner-row">
+        <nav class="navbar-menu"><i class="desktop-nav-arrow icon-general-arrow-filled-down arrow-icon"></i><i class="mobile-nav-arrow icon-general_arrow-down"></i>
+    <ul class="site-menu site-menu-lvl-0">
+<li class="site-menu-item site-menu-lvl-0" id="site-menu-item-1410109">
+            <a href="/dnaresearch/issue" class="nav-link ">Issues</a>
+            
+        </li>
+        <li class="site-menu-item site-menu-lvl-0" id="site-menu-item-1410106">
+            <a href="/dnaresearch/#" class="nav-link dummy-link">More Content</a>
+                <i class="desktop-nav-arrow icon-general-arrow-filled-down arrow-icon"></i><i class="mobile-nav-arrow icon-general_arrow-down"></i>
+    <ul class="site-menu site-menu-lvl-1">
+<li class="site-menu-item site-menu-lvl-1" id="site-menu-item-1410110">
+            <a href="/dnaresearch/advance-articles" class="nav-link ">Advance articles</a>
+            
+        </li>
+        <li class="site-menu-item site-menu-lvl-1" id="site-menu-item-1410111">
+            <a href="https://academic.oup.com/dnaresearch/pages/free_access_articles" class="nav-link ">Editor's Choice</a>
+            
+        </li>
+    </ul>
+</li>
+        <li class="site-menu-item site-menu-lvl-0" id="site-menu-item-1410107">
+            <a href="/dnaresearch/#" class="nav-link dummy-link">Submit</a>
+                <i class="desktop-nav-arrow icon-general-arrow-filled-down arrow-icon"></i><i class="mobile-nav-arrow icon-general_arrow-down"></i>
+    <ul class="site-menu site-menu-lvl-1">
+<li class="site-menu-item site-menu-lvl-1" id="site-menu-item-1410112">
+            <a href="/dnaresearch/pages/Instructions_To_Authors" class="nav-link ">Author Guidelines</a>
+            
+        </li>
+        <li class="site-menu-item site-menu-lvl-1" id="site-menu-item-1410113">
+            <a href="http://mc.manuscriptcentral.com/dnar" class="nav-link ">Submission Site</a>
+            
+        </li>
+        <li class="site-menu-item site-menu-lvl-1" id="site-menu-item-1410114">
+            <a href="/dnaresearch/pages/Instructions_To_Authors" class="nav-link ">Open Access</a>
+            
+        </li>
+    </ul>
+</li>
+        <li class="site-menu-item site-menu-lvl-0" id="site-menu-item-1410115">
+            <a href="/dnaresearch/subscribe" class="nav-link ">Purchase</a>
+            
+        </li>
+        <li class="site-menu-item site-menu-lvl-0" id="site-menu-item-1410116">
+            <a href="/my-account/email-alerts" class="nav-link ">Alerts</a>
+            
+        </li>
+        <li class="site-menu-item site-menu-lvl-0" id="site-menu-item-1410108">
+            <a href="/dnaresearch/#" class="nav-link dummy-link">About</a>
+                <i class="desktop-nav-arrow icon-general-arrow-filled-down arrow-icon"></i><i class="mobile-nav-arrow icon-general_arrow-down"></i>
+    <ul class="site-menu site-menu-lvl-1">
+<li class="site-menu-item site-menu-lvl-1" id="site-menu-item-1410117">
+            <a href="/dnaresearch/pages/About" class="nav-link ">About DNA Research</a>
+            
+        </li>
+        <li class="site-menu-item site-menu-lvl-1" id="site-menu-item-1410118">
+            <a href="http://www.kazusa.or.jp/e/index.html" class="nav-link ">About the Kazusa DNA Research Institute</a>
+            
+        </li>
+        <li class="site-menu-item site-menu-lvl-1" id="site-menu-item-1410119">
+            <a href="/dnaresearch/pages/Editorial_Board" class="nav-link ">Editorial Board</a>
+            
+        </li>
+        <li class="site-menu-item site-menu-lvl-1" id="site-menu-item-1410120">
+            <a href="http://www.oupmediainfo.com/" class="nav-link ">Advertising and Corporate Services</a>
+            
+        </li>
+        <li class="site-menu-item site-menu-lvl-1" id="site-menu-item-1410121">
+            <a href="http://science-and-mathematics-careernetwork.oxfordjournals.org" class="nav-link ">Journals Career Network</a>
+            
+        </li>
+        <li class="site-menu-item site-menu-lvl-1" id="site-menu-item-1410122">
+            <a href="https://academic.oup.com/journals/pages/access_purchase/rights_and_permissions/self_archiving_policy_c" class="nav-link ">Self-Archiving Policy</a>
+            
+        </li>
+        <li class="site-menu-item site-menu-lvl-1" id="site-menu-item-1410123">
+            <a href="http://www.oxfordjournals.org/en/access-purchase/dispatch-dates.html" class="nav-link ">Dispatch Dates</a>
+            
+        </li>
+        <li class="site-menu-item site-menu-lvl-1" id="site-menu-item-1410124">
+            <a href="http://www.kazusa.or.jp/e/index.html" class="nav-link ">Contact Us</a>
+            
+        </li>
+    </ul>
+</li>
+    </ul></nav><div class="navbar-search-container">
+                <div class="navbar-search-close js_close-navsearch">Close</div>
+                <div class="navbar-search">
+                    <div id="MicrositeSearch" class="microsite-search">
+                        <label for="navbar-search-filter" class="screenreader-text">search filter</label>
+                        <select class="navbar-search-filter" id="navbar-search-filter"><optgroup label="Search within this journal">
+<option class="header-search-bar-filters-item" value="Issue">This issue</option>
+<option class="header-search-bar-filters-item" value="" selected>All  DNA Research</option>
+</optgroup>
+<optgroup label="Search beyond this journal"><option class="header-search-bar-filters-item" value="Journals">All  Journals</option></optgroup></select><label for="MicrositeSearchTerm" class="screenreader-text">search input</label>
+                        <input class="navbar-search-input microsite-search-term" type="text" maxlength="255" id="MicrositeSearchTerm" title="search input"><span id="MicrositeSearchIcon" class="microsite-search-icon navbar-search-submit icon-menu_search"></span>
+
+                    </div>
+                </div>
+                <div class="navbar-search-advanced"><a href="/dnaresearch/advanced-search" class="advanced-search js-advanced-search">Advanced Search</a></div>
+            </div>            <div class="navbar-search-collapsed"><i class="icon-menu_search js_expand-navsearch"></i></div>
+    </div>
+</div>
+
+<input id="hfEnableOupOnlineProductsFeatures" name="hfEnableOupOnlineProductsFeatures" type="hidden" value="False"><input type="hidden" name="searchScope" id="hfSolrJournalID" value=""><input type="hidden" name="parentSiteName" id="hfParentSiteName" value="Journals"><input type="hidden" name="parentSiteUrl" id="hfparentSiteUrl" value="academic.oup.com/journals"><input type="hidden" name="siteID" id="hfsiteID" value="5275"><input type="hidden" name="parentSiteID" id="hfparentSiteID" value="5567"><input type="hidden" id="hfSolrJournalName" value=""><input type="hidden" id="hfSolrMaxAllowSearchChar" value="100"><input type="hidden" id="hfJournalShortName" value=""><input type="hidden" id="hfSearchPlaceholder" value=""><input type="hidden" name="hfGlobalSearchSiteURL" id="hfGlobalSearchSiteURL" value=""><input type="hidden" name="journalSiteScope" id="hfjournalSiteScope" value="Journals"><input type="hidden" name="parentSiteScope" id="hfparentSiteScope" value="Parent"><input type="hidden" name="defaultSearchURL" id="hfdefaultSearchURL" value="search-results?page=1&amp;q="><input type="hidden" name="issueSearch" id="hfIssueSearch" value="&amp;fl_IssueID=18719"><input type="hidden" name="issueSiteScope" id="hfIssueSiteScope" value="Issue"><input id="hfDefaultAdvancedSearchUrl" name="hfDefaultAdvancedSearchUrl" type="hidden" value="advanced-search?page=1&amp;q="><input type="hidden" name="hfSearchSiteURL" id="hfSiteURL" value="academic.oup.com/dnaresearch"><script type="text/javascript">
+        (function () {
+            var hfSiteUrl = document.getElementById('hfSiteURL');
+            var siteUrl = hfSiteUrl.value;
+            var subdomainIndex = siteUrl.indexOf('/');
+
+            hfSiteUrl.value = location.host + (subdomainIndex >= 0 ? siteUrl.substring(subdomainIndex) : '');
+        })();
+    </script><input id="routename" name="RouteName" type="hidden" value="dnaresearch">
+</div>
+
+</section><div id="main" class="content-main js-main ui-base">
+        <section class="master-main row"><div class="center-inner-row no-overflow">
+                
+
+
+<div class="page-column-wrap">
+<div id="InfoColumn" class="page-column page-column--left js-left-nav-col">
+    <div class="mobile-content-topbar hide">
+        <button class="toggle-left-col toggle-left-col__article">Article Navigation</button>
+    </div>
+    <div class="info-inner-wrap js-left-nav">
+        <button class="toggle-left-col__close btn-as-icon icon-general-close">
+            <span class="screenreader-text">Close mobile search navigation</span>
+        </button>
+        <div class="responsive-nav-title">Article Navigation</div>
+        <div class="info-widget-wrap">
+    <div class="widget widget-IssueInfo widget-instance-OUP_IssueInfo_Article">
+        
+
+<div id="issueInfo-OUP_IssueInfo_Article" class="article-info-wrap clearfix">
+    <i class="icon-general-close mobile-nav-btn nav-open"></i>
+    <div class="article-issue-img">
+            <a href="/dnaresearch/issue/18/6"><img id="issueImage" class="fb-featured-image" src="https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/dnaresearch/Issue/18/6/1/m_cover.gif?Expires=1576716999&amp;Signature=fFCdDcvLtnu4dCwnaEZYlvfGnbVRuyV9mdwtnSv8zoSU0qVVWO7d14uFs8huwwIE91DRS9Yjn~0T0arQmDDD5FkHDO9QSQL25A2~bmrLq1~y-mIc057MOuLNE3F5XpXFYUaScg36ci-W9geWO0UXem43cXZ~oZ-OcCmIyAIOnCNA05zCkJoSWZks8n5PnklgEr2W-L4C1Zni~CVVqRpbN20KfnJHcaJwWIXJ2NhF~G91uf2FVpR66~nMtTE4CRqAH5QZoiKn9GilvyroNzgdxsBso4PhsIPCHPVd~NeEH-uzsDbiL5hVELsb1f0vwPuDDSSx6JLwWyemeVm-e3J5CA__&amp;Key-Pair-Id=APKAIE5G5CRDK6RD3PGA" alt="Issue Cover"></a>
+    </div>
+    <div class="article-issue-info">
+        <div class="volume-issue__wrap">
+
+            <a href="/dnaresearch/issue/18/6">
+                        <div class="volume trailing-comma">Volume 18</div>
+                        <div class="issue">Issue 6</div>
+
+            </a>
+
+        </div>
+        <div class="ii-pub-date">
+December 2011        </div>
+        
+    </div>
+
+</div> 
+    </div>
+
+            <div class="content-nav">
+    <div class="widget widget-ArticleJumpLinks widget-instance-OUP_ArticleJumpLinks_Widget">
+        
+
+<div class="contents-title">Article Contents</div>
+<ul class="jumplink-list">
+<li class="section-jump-link head-1" link-destination="7212977">
+            <div class="section-jump-link__link-wrap">
+
+                <a class="js-jumplink scrollTo" href="#7212977">Abstract</a>
+            </div>
+        </li>
+        <li class="section-jump-link head-1" link-destination="7212979">
+            <div class="section-jump-link__link-wrap">
+
+                <a class="js-jumplink scrollTo" href="#7212979">1. Introduction</a>
+            </div>
+        </li>
+        <li class="section-jump-link head-1" link-destination="7212983">
+            <div class="section-jump-link__link-wrap">
+
+                <a class="js-jumplink scrollTo" href="#7212983">2. Materials and methods</a>
+            </div>
+        </li>
+        <li class="section-jump-link head-1" link-destination="7212992">
+            <div class="section-jump-link__link-wrap">
+
+                <a class="js-jumplink scrollTo" href="#7212992">3. Results</a>
+            </div>
+        </li>
+        <li class="section-jump-link head-1" link-destination="7213031">
+            <div class="section-jump-link__link-wrap">
+
+                <a class="js-jumplink scrollTo" href="#7213031">4. Discussion</a>
+            </div>
+        </li>
+        <li class="section-jump-link head-1" link-destination="7213040">
+            <div class="section-jump-link__link-wrap">
+
+                <a class="js-jumplink scrollTo" href="#7213040">5. Conclusion</a>
+            </div>
+        </li>
+        <li class="section-jump-link head-1" link-destination="7213045">
+            <div class="section-jump-link__link-wrap">
+
+                <a class="js-jumplink scrollTo" href="#7213045">6. Availability</a>
+            </div>
+        </li>
+        <li class="section-jump-link head-1" link-destination="7213050">
+            <div class="section-jump-link__link-wrap">
+
+                <a class="js-jumplink scrollTo" href="#7213050">Supplementary data</a>
+            </div>
+        </li>
+        <li class="section-jump-link head-1" link-destination="7213054">
+            <div class="section-jump-link__link-wrap">
+
+                <a class="js-jumplink scrollTo" href="#7213054">Funding</a>
+            </div>
+        </li>
+        <li class="section-jump-link head-1 backReferenceLink" link-destination="7213058">
+            <div class="section-jump-link__link-wrap">
+
+                <a class="js-jumplink scrollTo" href="#7213058">References</a>
+            </div>
+        </li>
+</ul>
+</div>
+
+            </div>
+    <div class="widget widget-ArticleNavLinks widget-instance-OUP_ArticleNavLinks_Article">
+        <ul class="inline-list">
+<li class="prev arrow">
+            <a href="/dnaresearch/article/18/6/451/477488">&lt; Previous</a>
+        </li>        
+            <li class="next arrow">
+            <a href="/dnaresearch/article/18/6/471/477837">Next &gt;</a>
+        </li>
+</ul>
+</div>
+
+        </div>
+    </div>
+</div>
+<div class="sticky-toolbar js-sticky-toolbar"></div>
+<div id="ContentColumn" class="page-column page-column--center">
+    <div class="article-browse-top article-browse-mobile-nav js-article-browse-mobile-nav">
+        <div class="article-browse-mobile-nav-inner js-article-browse-mobile-nav-inner">
+            <button class="toggle-left-col toggle-left-col__article btn-as-link">
+                Article Navigation
+            </button>
+        </div>
+    </div>
+    <div class="content-inner-wrap">
+    <div class="widget widget-ArticleTopInfo widget-instance-OUP_ArticleTop_Info_Widget">
+        <div class="module-widget article-top-widget">
+
+    
+
+    
+        <div class="access-state-logos all-viewports">
+    
+        </div>
+
+
+    <div class="widget-items">
+                <h1 class="wi-article-title article-title-main">
+                    PlantRGS: A Web Server for the Identification of Most Suitable Candidate Reference Genes for Quantitative Gene Expression Studies in Plants
+<i class="icon-availability_open" title="Open Access"></i>                </h1>
+                <div class="wi-authors">
+                    <div class="al-authors-list">
+                        <span class="al-author-name-more">
+
+
+                            <span class="al-author-info-wrap arrow-up">
+
+
+<div id="authorInfo_OUP_ArticleTop_Info_Widget" class="info-card-author">
+    <div class="name-role-wrap">
+        <div class="info-card-name">Ravi K. Patel</div>
+    </div>
+
+        <div class="info-card-affilitation">
+            <div class="aff">
+<div class="insititution">National Institute of Plant Genome Research (NIPGR), Aruna Asaf Ali Marg</div>, <div class="addr-line">New Delhi 110 067</div>, <div class="country">India</div>
+</div>
+        </div>
+
+
+
+
+
+        <div class="info-card-search-label">
+            Search for other works by this author on:
+        </div>
+            <div class="info-card-search info-card-search-oxford">
+                <a href="/dnaresearch/search-results?f_Authors=Ravi+K.+Patel">Oxford Academic</a>
+            </div>
+            <div class="info-card-search info-card-search-pubmed">
+                <a href="http://www.ncbi.nlm.nih.gov/pubmed?cmd=search&amp;term=Patel%20R">PubMed</a>
+            </div>
+            <div class="info-card-search info-card-search-google">
+                <a href="http://scholar.google.com/scholar?q=author:%22Patel%20Ravi%20K.%22">Google Scholar</a>
+            </div>
+
+</div>
+                            </span>
+
+
+
+                            <a class="linked-name" href="javascript:;">Ravi K. Patel</a><span class="delimiter">, </span>
+                        </span>
+                        <span class="al-author-name-more">
+
+
+                            <span class="al-author-info-wrap arrow-up">
+
+
+<div id="authorInfo_OUP_ArticleTop_Info_Widget" class="info-card-author">
+    <div class="name-role-wrap">
+        <div class="info-card-name">Mukesh Jain</div>
+    </div>
+
+        <div class="info-card-affilitation">
+            <div class="aff">
+<div class="insititution">National Institute of Plant Genome Research (NIPGR), Aruna Asaf Ali Marg</div>, <div class="addr-line">New Delhi 110 067</div>, <div class="country">India</div>
+</div>
+        </div>
+
+
+        <div class="info-author-correspondence">
+            <div class="label">*</div>To whom correspondence should be addressed. Tel. +91 11-26735182. Fax. +91 11-26741658. Email: <a href="mailto:mjain@nipgr.res.in" target="_blank">mjain@nipgr.res.in</a>
+        </div>
+
+
+
+        <div class="info-card-search-label">
+            Search for other works by this author on:
+        </div>
+            <div class="info-card-search info-card-search-oxford">
+                <a href="/dnaresearch/search-results?f_Authors=Mukesh+Jain">Oxford Academic</a>
+            </div>
+            <div class="info-card-search info-card-search-pubmed">
+                <a href="http://www.ncbi.nlm.nih.gov/pubmed?cmd=search&amp;term=Jain%20M">PubMed</a>
+            </div>
+            <div class="info-card-search info-card-search-google">
+                <a href="http://scholar.google.com/scholar?q=author:%22Jain%20Mukesh%22">Google Scholar</a>
+            </div>
+
+</div>
+                            </span>
+
+
+
+                            <a class="linked-name" href="javascript:;">Mukesh Jain</a><span class="delimiter"></span>
+                        </span>
+
+                            <div class="al-author-name al-author-footnotes">
+                                <div class="al-author-info-wrap arrow-up">
+    <div class="widget widget-SingleSection widget-instance-OUP_FootnoteSection">
+        <div content-id=""><div class="fn"><div class="footnote-content">Edited by Kazuhiro Sato</div></div></div> 
+    </div>
+                                </div>
+                                <a class="js-linked-footnotes" href="javascript:;">Author Notes</a>
+                            </div>
+                    </div>
+                </div>
+<div class="pub-history-wrap clearfix">
+
+        <div class="pub-history-row clearfix">
+            <div class="ww-citation-primary">
+<em>DNA Research</em>, Volume 18, Issue 6, December 2011, Pages 463–470, <a href="https://doi.org/10.1093/dnares/dsr032">https://doi.org/10.1093/dnares/dsr032</a>
+</div>
+        </div>
+        <div class="pub-history-row clearfix">
+            <div class="ww-citation-date-wrap">
+                <div class="citation-label">Published:</div>
+                <div class="citation-date">10 October 2011</div>
+            </div>
+                <a href="javascript:;" class="ww-citation-history-wrap js-article-history st-article-history">
+                    <span>Article history</span><i class="icon-general-arrow-filled-down arrow-icon"></i>
+                </a>
+        </div>
+            <div class="history-entries-wrap js-history-entries-wrap">
+                <div class="history-entry">
+                    <div class="wi-state">Received:</div>
+                    <div class="wi-date">08 April 2011</div>
+                </div>
+                <div class="history-entry">
+                    <div class="wi-state">Accepted:</div>
+                    <div class="wi-date">25 August 2011</div>
+                </div>
+                <div class="history-entry">
+                    <div class="wi-state">Published:</div>
+                    <div class="wi-date">10 October 2011</div>
+                </div>
+        </div>
+</div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.article-top-widget').on('click', '.ati-toggle-trigger', function () {
+            $(this).find('.icon-general-add, .icon-minus').toggleClass('icon-minus icon-general-add');
+            $(this).siblings('.ati-toggle-content').toggleClass('hide');
+        });
+
+        // In Chrome, an anchor tag with target="_blank" and a "mailto:" href opens a new tab/window as well as the email client
+        // I suspect this behavior will be corrected in the future
+        // Remove the target="_blank"
+        $('ul.wi-affiliationList').find('a[href^="mailto:"]').each(function () {
+            $(this).removeAttr('target');
+        });
+    });
+</script>
+</div>
+    <div class="widget widget-ArticleLinks widget-instance-OUP_Article_Links_Widget">
+         
+    </div>
+
+
+        <div class="article-body">
+            <div class="toolbar-wrap js-toolbar-wrap">
+                <div class="toolbar-inner-wrap">
+                    <ul id="Toolbar" role="navigation">
+<li class="toolbar-item item-pdf">
+        <a class="al-link pdf article-pdfLink" data-article-id="477571" href="/dnaresearch/article-pdf/18/6/463/1291097/dsr032.pdf">
+            <img src="//oup.silverchair-cdn.com/UI/app/svg/pdf.svg" alt="pdf"><span class="pdf-link-text">PDF</span>
+        </a>
+    </li>
+                                                    <li class="toolbar-item item-link item-split-view">
+                                <a href="javascript:;" class="split-view js-split-view st-split-view" target="">
+                                    <i class="icon-menu_split"></i>
+                                    Split View
+                                </a>
+                            </li>
+                        <li class="toolbar-item item-with-dropdown item-views">
+                            <a class="drop-trigger" href="javascript:;" data-dropdown="FilterDrop" aria-haspopup="true">
+                                <i class="icon-menu_views"></i>
+                                <div class="toolbar-label">
+                                    <div class="toolbar-text">Views</div>
+                                    <i class="icon-general-arrow-filled-down arrow-icon"></i>
+                                </div>
+                            </a>
+                            <ul id="ViewsDrop" class="f-dropdown" data-dropdown-content aria-label="submenu">
+<div class="arrow-up"></div>
+                                <li class="article-content-filter js-article-content-filter" data-content-filter="article-content">
+                                    <a href="javascript:;"><span>Article contents</span></a>
+                                </li>
+                                <li class="article-content-filter js-article-content-filter" data-content-filter="figures-tables">
+                                    <a href="javascript:;"><span>Figures &amp; tables</span></a>
+                                </li>
+                                <li class="article-content-filter js-article-content-filter" data-content-filter="video">
+                                    <a href="javascript:;"><span>Video</span></a>
+                                </li>
+                                <li class="article-content-filter js-article-content-filter" data-content-filter="audio">
+                                    <a href="javascript:;"><span>Audio</span></a>
+                                </li>
+                                <li class="article-content-filter js-article-content-filter" data-content-filter="supplementary-data">
+                                    <a href="javascript:;"><span>Supplementary Data</span></a>
+                                </li>
+                            </ul>
+</li>
+                        <li class="toolbar-item">
+    <div class="widget widget-ToolboxGetCitation widget-instance-OUP_Get_Citation">
+        
+<a href="#" data-reveal-id="getCitation" data-reveal><i class="icon-read-more"></i><span>Cite</span></a>
+
+<div id="getCitation" class="reveal-modal" data-reveal>
+    <div class="modal-title">Citation</div>
+    <p>Ravi K. Patel, Mukesh Jain,  PlantRGS: A Web Server for the Identification of Most Suitable Candidate Reference Genes for Quantitative Gene Expression Studies in Plants, <em>DNA Research</em>, Volume 18, Issue 6, December 2011, Pages 463–470, <a href="https://doi.org/10.1093/dnares/dsr032">https://doi.org/10.1093/dnares/dsr032</a></p>
+    <p class="citation-label">Download citation file:</p>  
+    <ul>
+<li><a href="/Citation/Download?resourceId=477571&amp;resourceType=3&amp;citationFormat=0">Ris (Zotero)</a></li>
+        <li><a href="/Citation/Download?resourceId=477571&amp;resourceType=3&amp;citationFormat=1">EndNote</a></li>
+        <li><a href="/Citation/Download?resourceId=477571&amp;resourceType=3&amp;citationFormat=2">BibTex</a></li>
+        <li><a href="/Citation/Download?resourceId=477571&amp;resourceType=3&amp;citationFormat=3">Medlars</a></li>
+        <li><a href="/Citation/Download?resourceId=477571&amp;resourceType=3&amp;citationFormat=0">ProCite</a></li>
+        <li><a href="/Citation/Download?resourceId=477571&amp;resourceType=3&amp;citationFormat=3">RefWorks</a></li>
+        <li><a href="/Citation/Download?resourceId=477571&amp;resourceType=3&amp;citationFormat=0">Reference Manager</a></li>
+    </ul>
+<hr>
+<p>© 2019 Oxford University Press</p>
+    <a class="close-reveal-modal" href="javascript:;"><i class="icon-general-close"></i><span class="screenreader-text">Close</span></a>
+</div> 
+    </div>
+
+                        </li>
+                        <li class="toolbar-item item-tools">
+    <div class="widget widget-ToolboxPermissions widget-instance-">
+            <div class="module-widget">
+        <a href="https://s100.copyright.com/AppDispatchServlet?publisherName=OUP&amp;publication=1756-1663&amp;title=PlantRGS%3A%20A%20Web%20Server%20for%20the%20Identification%20of%20Most%20Suitable%20Candidate%20Reference%20Genes%20for%20Quantitative%20Gene%20Expression%20Studies%20in%20Plants&amp;publicationDate=2011-10-10&amp;volumeNum=18&amp;issueNum=6&amp;author=Patel%2C%20Ravi%20K.%3B%20Jain%2C%20Mukesh&amp;startPage=463&amp;endPage=470&amp;contentId=10.1093%2Fdnares%2Fdsr032&amp;oa=CC%20BY-NC&amp;copyright=Oxford%20University%20Press&amp;orderBeanReset=True" id="PermissionsLink" class="" target="_blank">
+            <i class="icon-menu_permissions">
+                <span class="screenreader-text">Permissions Icon</span>
+            </i>
+            Permissions
+        </a>
+    </div>
+ 
+    </div>
+
+                        </li>
+                        <li class="toolbar-item item-with-dropdown item-share last">
+                            <a class="drop-trigger" href="javascript:;" data-dropdown="ShareDrop" aria-haspopup="true">
+                                <i class="icon-menu_share"></i>
+                                <div class="toolbar-label">
+                                    <div class="toolbar-text">Share</div>
+                                    <i class="icon-general-arrow-filled-down arrow-icon"></i>
+                                </div>
+                            </a>
+                            <ul id="ShareDrop" class="addthis_toolbox addthis_default_style addthis_20x20_style f-dropdown" data-dropdown-content aria-label="submenu">
+<div class="arrow-up"></div>
+                                <li><a class="addthis_button_email"><span>Email</span></a></li>
+                                <li><a class="addthis_button_twitter"><span>Twitter</span></a></li>
+                                <li><a class="addthis_button_facebook"><span>Facebook</span></a></li>
+                                <li><a class="addthis_button_compact"><span>More</span></a></li>
+                            </ul>
+</li>
+                    </ul>
+<div class="toolbar-search">
+    <div class="widget widget-SitePageHeader widget-instance-OUP_ArticleToolbarSearchBox">
+        
+
+
+<div class="dropdown-panel-wrap">
+
+    
+    <div class="dropdown-panel mobile-search-dropdown">
+        <div class="mobile-search-inner-wrap">
+            <div class="navbar-search">
+                <div id="MobileMicrositeSearch" class="mobile-microsite-search">
+                    <label for="mobile-navbar-search-filter" class="screenreader-text">Navbar Search Filter</label>
+                    <select class="navbar-search-filter" id="mobile-navbar-search-filter"><optgroup label="Search within this journal">
+<option class="header-search-bar-filters-item" value="Issue">This issue</option>
+<option class="header-search-bar-filters-item" value="">All  DNA Research</option>
+</optgroup>
+<optgroup label="Search beyond this journal"><option class="header-search-bar-filters-item" value="Journals">All  Journals</option></optgroup></select><label for="MobileMicrositeSearchTerm" class="screenreader-text">Mobile Microsite Search Term</label>
+                    <input class="mobile-search-input mobile-microsite-search-term" type="text" maxlength="255" placeholder="Search" id="MobileMicrositeSearchTerm"><span id="MobileMicrositeSearchIcon" class="mobile-microsite-search-icon mobile-search-submit icon-menu_search"></span>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="dropdown-panel mobile-account-dropdown">
+        <ul class="site-menu site-menu-lvl-0">
+<li class="site-menu-item site-menu-lvl-0">
+                <a href="" class="nav-link mobile-account-signin dummy-link" id="header-account-info-user-fullname">
+                    
+Sign In                    <i class="mobile-nav-arrow icon-general_arrow-down"></i>
+                </a>
+                <ul class="site-menu site-menu-lvl-1 individual-menu">
+<li class="dropdown-signin-form">
+                        <div class="spinner"></div>
+                    </li>
+                </ul>
+</li>
+                <li class="site-menu-item site-menu-lvl-0">
+                        <a class="nav-link mobile-account-institution dummy-link">
+                            New Jersey Institute of Technology
+                        </a>
+
+                    <i class="mobile-nav-arrow icon-general_arrow-down"></i>
+                    <ul class="site-menu site-menu-lvl-1">
+<li class="dropdown-institution-item">
+
+New Jersey Institute of Technology
+                            </li>
+
+                        <li class="dropdown-institution-signout">
+                        </li>
+                    </ul>
+</li>
+                            <li class="site-menu-item">
+                    <a href="/my-account/register?siteId=5275&amp;returnUrl=%2fdnaresearch%2farticle%2f18%2f6%2f463%2f477571" class="register nav-link">Register</a>
+                </li>
+        </ul>
+</div>
+    
+    <div class="dropdown-panel mobile-nav-dropdown">
+
+    </div>
+
+</div>
+
+
+
+<div class="navbar">
+    <div class="center-inner-row">
+        <nav class="navbar-menu"></nav><div class="navbar-search-container">
+                <div class="navbar-search-close js_close-navsearch">Close</div>
+                <div class="navbar-search">
+                    <div id="MicrositeSearch" class="microsite-search">
+                        <label for="navbar-search-filter" class="screenreader-text">search filter</label>
+                        <select class="navbar-search-filter" id="navbar-search-filter"><optgroup label="Search within this journal">
+<option class="header-search-bar-filters-item" value="Issue">This issue</option>
+<option class="header-search-bar-filters-item" value="" selected>All  DNA Research</option>
+</optgroup>
+<optgroup label="Search beyond this journal"><option class="header-search-bar-filters-item" value="Journals">All  Journals</option></optgroup></select><label for="MicrositeSearchTerm" class="screenreader-text">search input</label>
+                        <input class="navbar-search-input microsite-search-term" type="text" maxlength="255" id="MicrositeSearchTerm" title="search input"><span id="MicrositeSearchIcon" class="microsite-search-icon navbar-search-submit icon-menu_search"></span>
+
+                    </div>
+                </div>
+                <div class="navbar-search-advanced"><a href="/dnaresearch/advanced-search" class="advanced-search js-advanced-search">Advanced Search</a></div>
+            </div>            <div class="navbar-search-collapsed"><i class="icon-menu_search js_expand-navsearch"></i></div>
+    </div>
+</div>
+
+<input id="hfEnableOupOnlineProductsFeatures" name="hfEnableOupOnlineProductsFeatures" type="hidden" value="False"><input id="routename" name="RouteName" type="hidden" value="dnaresearch">
+</div>
+
+                    </div>
+                </div>
+            </div>
+            <div id="ContentTab" class="content active">
+    <div class="widget widget-ArticleFulltext widget-instance-OUP_Article_FullText_Widget">
+        <div class="module-widget">
+    <div class="widget-items" data-widgetname="ArticleFulltext">
+
+
+
+
+
+                    <h2 scrollto-destination="7212977" id="7212977" class="abstract-title">Abstract</h2>
+<section class="abstract"><p>Normalization of quantitative gene expression data with a suitable reference gene is essential for accurate and reliable results. However, the availability and choice of most suitable reference gene(s) showing uniform expression across all the experimental conditions remain a drawback. We have developed a web server, PlantRGS (<a class="link link-uri" href="http://www.nipgr.res.in/PlantRGS">http://www.nipgr.res.in/PlantRGS</a>), for the identification of most suitable candidate reference gene(s) at the whole-genome level using microarray data for quantitative gene expression studies in plants. Microarray data from more than 11 000 tissue samples for nine plant species have been included in the PlantRGS for meta-analysis. The web server provides a user-friendly graphical user interface-based analysis tool for the identification of most suitable reference genes in the selected plant species under user-defined experimental conditions. Various parameter options and output formats will help users to investigate desired number of most suitable reference genes with wide range of expression levels. Validation of results revealed that novel reference genes identified by the PlantRGS outperforms the traditionally used reference genes in terms of expression stability. We anticipate that the PlantRGS will provide a platform for the identification of most suitable reference gene(s) under given experimental conditions and facilitate quantitative gene expression studies in plants.</p></section><div class="article-metadata-panel clearfix"></div>
+<div class="kwd-group">
+<a class="kwd-part kwd-main" href="javascript:;" data-keyword='"gene expression"'>gene expression</a>, <a class="kwd-part kwd-main" href="javascript:;" data-keyword='"reference gene"'>reference gene</a>, <a class="kwd-part kwd-main" href="javascript:;" data-keyword="microarray">microarray</a>, <a class="kwd-part kwd-main" href="javascript:;" data-keyword="normalization">normalization</a>, <a class="kwd-part kwd-main" href="javascript:;" data-keyword='"web server"'>web server</a>
+</div>                    <h2 scrollto-destination="7212979" id="7212979" class="section-title" data-legacy-id="s1">1. Introduction</h2>
+<p>Gene expression studies are very important to gain insights into the function of gene(s). Two commonly used techniques for measurement of gene expression levels in complementation to each other are DNA microarray and reverse-transcription–quantitative PCR (RT–qPCR) analysis.<sup><a reveal-id="DSR032C1" data-open="DSR032C1" class="link link-ref link-reveal xref-bibr">1</a></sup> The RT–qPCR has very high sensitivity and is often used to validate the results of DNA microarray studies.<sup><a reveal-id="DSR032C2  DSR032C4" data-open="DSR032C2  DSR032C4" class="link link-ref link-reveal xref-bibr">2–4</a></sup> Normalization is considered as the key factor, which affects the reliability of RT–qPCR results.<sup><a reveal-id="DSR032C5" data-open="DSR032C5" class="link link-ref link-reveal xref-bibr">5</a></sup> The normalization is done with a suitable reference gene, which is ubiquitously expressed at stable level in different biological contexts. Until recently, a variety of housekeeping genes, such as actin, tubulin, glyceraldehyde-3-phosphate dehydrogenase (GAPDH), elongation factor 1-α (EF1-α), polyubiquitin and ribosomal RNA, were being used as reference gene(s), which were supposed to express stably in different biological contexts because of their known role in basic cellular processes. However, it has been reported in many studies that the expression of these genes are also regulated and therefore, their transcript level varies in different cell types and/or experimental conditions, making them unsuitable for use as reference genes in normalization of gene expression results.<sup><a reveal-id="DSR032C6  DSR032C11" data-open="DSR032C6  DSR032C11" class="link link-ref link-reveal xref-bibr">6–11</a></sup> The expression stability of reference genes showing highly stable expression under one set of experimental conditions may vary under other set of experimental conditions, and thus, their choice remains a drawback. Furthermore, the set of most suitable reference genes may differ in various species even under the identical experimental conditions. Therefore, for a particular study, a species-specific set of most suitable reference genes needs to be identified for accurate normalization of gene expression data.</p>
+<p>Several studies have been performed to identify the most suitable housekeeping gene(s) under specific environmental conditions in various organisms, including plants, to use them as reference genes for normalization.<sup><a reveal-id="DSR032C12  DSR032C15" data-open="DSR032C12  DSR032C15" class="link link-ref link-reveal xref-bibr">12–15</a></sup> However, only a few studies have been performed to identify the novel reference genes.<sup><a reveal-id="DSR032C9" data-open="DSR032C9" class="link link-ref link-reveal xref-bibr">9</a>,<a reveal-id="DSR032C16  DSR032C18" data-open="DSR032C16  DSR032C18" class="link link-ref link-reveal xref-bibr">16–18</a></sup> Using microarray data, expression of all the genes can be examined simultaneously to identify the novel genes showing uniform expression under selected experimental conditions or tissue types. A plethora of microarray data have been generated for various plant species in different biological contexts and are available in the public databases, which can be utilized for this purpose. Only a few studies have been carried out using microarray data of <em>Arabidopsis</em>, <em>Glycine max</em> (soybean) and rice to predict the most suitable reference genes under specific experimental conditions followed by their validation using RT–qPCR and/or statistical algorithms.<sup><a reveal-id="DSR032C9" data-open="DSR032C9" class="link link-ref link-reveal xref-bibr">9</a>,<a reveal-id="DSR032C16" data-open="DSR032C16" class="link link-ref link-reveal xref-bibr">16</a>,<a reveal-id="DSR032C17" data-open="DSR032C17" class="link link-ref link-reveal xref-bibr">17</a>,<a reveal-id="DSR032C19" data-open="DSR032C19" class="link link-ref link-reveal xref-bibr">19</a></sup></p>
+<p>In this study, we have developed a web server, PlantRGS, which identifies the most suitable candidate reference genes for quantitative gene expression studies in plants based on the microarray data. PlantRGS provides a user-friendly graphical user interface (GUI) that allows automatic analysis of thousands of arrays simultaneously and generates a list of most suitable candidate reference genes with their gene description, expression statistics [mean signal value, standard deviation and coefficient of variance (CV)] and graph showing relative expression as output. The server will be very valuable for the scientific community to identify the most suitable reference gene(s) to be used for normalization in gene expression studies.</p>                    <h2 scrollto-destination="7212983" id="7212983" class="section-title" data-legacy-id="s2">2. Materials and methods</h2>
+                    <h3 scrollto-destination="7212984" id="7212984" class="section-title" data-legacy-id="s2a">2.1. Microarray data download and pre-processing</h3>
+<p>Microarray data based on Affymetrix platform for the nine different plant species, including <em>Arabidopsis thaliana</em> (<em>Arabidopsis</em>), <em>G. max</em> (soybean), <em>Hordeum vulgare</em> (barley), <em>Oryza sativa</em> (rice), <em>Populus</em> (poplar), <em>Solanum lycopersicum</em> (tomato), <em>Triticum aestivum</em> (wheat), <em>Vitis vinifera</em> (grape vine) and <em>Zea mays</em> (maize), available at the Gene Expression Omnibus (GEO) database of NCBI comprised of 11 187 arrays, were downloaded. All the downloaded CEL files were subjected to normalization using MAS5 algorithm using Affymetrix Expression Console software (<a class="link link-uri" href="http://www.affymetrix.com">http://www.affymetrix.com</a>) at default parameters. Signal intensities and absolute calls (present, marginal or absent) measured for each probeset in all the arrays using Expression Console were recorded. The probesets having detection <em>P</em>-value &lt; 0.05 were assigned as present call, those with detection <em>P</em>-value ≥0.065 were assigned as absent call and the remaining as marginal call.</p>                    <h3 scrollto-destination="7212986" id="7212986" class="section-title" data-legacy-id="s2b">2.2. Microarray data processing and output</h3>
+<p>The microarray data processing method implemented in the PlantRGS for the identification of most suitable reference genes is based on the previous studies.<sup><a reveal-id="DSR032C9" data-open="DSR032C9" class="link link-ref link-reveal xref-bibr">9</a>,<a reveal-id="DSR032C17" data-open="DSR032C17" class="link link-ref link-reveal xref-bibr">17</a></sup> User-selected microarray experiments/arrays and parameters from the server application are taken as an input in the Perl processing module. The absolute call (present/marginal/absent) information about all probesets for the selected arrays and signal intensity (linear or log transformed) values only for the probesets having present call in at least given percentage (user-defined) of the selected arrays are obtained from the MySQL database. These probesets are further filtered on the basis of signal intensity range defined by the user for selected arrays. Mean signal intensity, standard deviation and CV (mean/standard deviation) for the filtered probesets are calculated and the given number of probesets showing least CV with their statistics is displayed along with the corresponding gene locus id and description (if available). In addition, user-specified probesets (if provided) are also searched in the list of filtered probesets and their statistics is also displayed. The gene description for <em>Arabidopsis</em>, rice and soybean probesets was used from TAIR (<a class="link link-uri" href="http://www.arabidopsis.org/">http://www.arabidopsis.org/</a>), Rice Oligonucleotide Array Database (<a class="link link-uri" href="http://www.ricearray.org/">http://www.ricearray.org/</a>) and SoyBase (<a class="link link-uri" href="http://soybase.org/">http://soybase.org/</a>), respectively. However, for other plants, gene descriptions were derived from the significant (<em>E</em>-value ≤ 1e-5) best hit of the target sequences of the probesets with <em>Arabidopsis</em> or Uniprot proteins in BLASTX search.</p>                    <h3 scrollto-destination="7212988" id="7212988" class="section-title" data-legacy-id="s2c">2.3. Statistical assessment of gene expression stability</h3>
+<p>To assess the gene expression stability of the reference genes predicted by the server and traditional reference genes, we used geNorm v3.5 software.<sup><a reveal-id="DSR032C20" data-open="DSR032C20" class="link link-ref link-reveal xref-bibr">20</a></sup> The signal values were converted into relative quantities for analysis using geNorm. geNorm calculates the average expression stability (<em>M</em>) value for each gene being analysed based on the mean pairwise variation in the expression of a gene from all other genes under investigation.<sup><a reveal-id="DSR032C20" data-open="DSR032C20" class="link link-ref link-reveal xref-bibr">20</a></sup></p>                    <h3 scrollto-destination="7212990" id="7212990" class="section-title" data-legacy-id="s2d">2.4. Web server architecture and implementation</h3>
+<p>PlantRGS adopts a four-tier architecture (Java/Java/Perl/MySQL) as depicted in <a class="supplementary-data tab-trigger jumplink scrollTo" target="SupplementalTab" href="#supplementary-data" data-tab="#supplementary-data">Supplementary Fig. S1A</a>. The server has been presently hosted on a Linux workstation with two quad-core 3.33 GHz Intel Xeon processors and 12 GB of RAM. The server application has been implemented in Java and the client GUI was developed using Java 2 Swing technology. The pre-processed microarray data have been stored into MySQL database on the server. Processing of the data has been employed in Perl programming language. The client-side GUI can be launched either by using web browser-dependent applet or web browser-independent Java Web Start technology (using .jnlp file available for download). The server can accept requests from multiple clients simultaneously using a specified port.</p>                    <h2 scrollto-destination="7212992" id="7212992" class="section-title" data-legacy-id="s3">3. Results</h2>
+                    <h3 scrollto-destination="7212993" id="7212993" class="section-title" data-legacy-id="s3a">3.1. Data acquisition and web server</h3>
+<p>Microarray data from Affymetrix platform comprised of a total of 593 experiments including 11 187 arrays from nine different plant species were used in the current version of PlantRGS. Microarray data generated using Affymetrix platform show high degree of reproducibility and homogeneity across different laboratories when compared with other platforms and thus provide better opportunity to identify the genes with uniform expression across various experimental conditions. Largest data set was available for <em>Arabidopsis</em> (432 experiments and 5689 arrays) followed by soybean (23 experiments and 3109 arrays) and least for tomato (7 experiments and 173 arrays). The microarray data represented a wide variety of experimental conditions, including developmental stages, abiotic and biotic stress conditions, light/hormone/chemical treatments and genotypes/mutants/transgenics. The number of experiments and arrays for all the nine plant species included in the PlantRGS is given in <a class="supplementary-data tab-trigger jumplink scrollTo" target="SupplementalTab" href="#supplementary-data" data-tab="#supplementary-data">Supplementary Table S1</a>. A complete list of all the experiments along with their accession number and description available at GEO has been provided in the download option of the web server. Other plant species, for which very less microarray data are available at GEO, has not been included in the current version. We intend to include the microarray data for more plants in the subsequent releases of PlantRGS, when sufficient data for them become available in the public databases.</p>
+<p>All the microarray experiments were curated either manually or using curated data source PLEXdb<sup><a reveal-id="DSR032C21" data-open="DSR032C21" class="link link-ref link-reveal xref-bibr">21</a></sup> to assign them to broad experimental factor ontology term(s). The microarray experiments were classified broadly into development/tissue-type, abiotic stress, biotic stress, hormone, other stimuli and genetic line/cultivar, ontology term(s). The experiments which could not be classified into these ontology terms were kept in miscellaneous category. This classification will help the users to select all the microarray experiments for a specific environmental condition under study, without putting extra effort in going through their description.</p>
+<p>PlantRGS GUI provides various tools and options to select the plant species and experiments/arrays, process the data and analyse, manage, export and load the results. The signal intensity values of each probeset for all arrays after normalization with MAS5 algorithm have been stored in MySQL database of the web server. The user-friendly GUI provides different tools and parameter options to investigate most suitable reference genes without the requirement of high computational resources and technical expertise. The user interface outputs the most suitable reference genes listed in the ascending order of CV. A lower value of CV indicates higher expression stability of that gene across the selected set of arrays or experimental conditions. The server may be accessed by multiple users simultaneously without compromising the speed and accuracy of prediction. The results were generated in couple of minutes on the server, when tested for the data set of soybean, with default parameters for simultaneous requests from three different clients.</p>                    <h3 scrollto-destination="7212997" id="7212997" class="section-title" data-legacy-id="s3b">3.2. Identification of most suitable reference genes using PlantRGS</h3>
+                    <h4 scrollto-destination="7212998" id="7212998" class="section-title" data-legacy-id="s3b1">3.2.1. PlantRGS workflow</h4>
+<p>The workflow for using PlantRGS has been illustrated in <a class="supplementary-data tab-trigger jumplink scrollTo" target="SupplementalTab" href="#supplementary-data" data-tab="#supplementary-data">Supplementary Fig. S1B</a>. After launching the application, selection of a plant species to be studied loads all the microarray data available for it on the GUI. Microarray data representing different experimental conditions can be selected from the hierarchical tree of experiments/arrays or ontology terms. A set of parameters, including log transformation, per cent present call, signal intensity range and number of reference genes to be identified may be specified. In addition, probeset ids may be provided for comparison of their expression stability with those predicted by the server. After selecting experiments/arrays and suitable parameters, run the analysis and results will be displayed in result area of GUI. The results can be exported in tab-delimited text file (tables) and images (graph).</p>                    <h4 scrollto-destination="7213000" id="7213000" class="section-title" data-legacy-id="s3b2">3.2.2. Key parameters of PlantRGS</h4>
+<p>The PlantRGS web server highlights several key parameters for identifying most suitable candidate reference genes as described below. </p>
+<ol class="order">
+<li><p>Selection of microarray experiments. The microarray experiments for a plant species can be selected depending on the experimental conditions to be analysed. The broad ontology terms may be used to select the microarray data for desired experimental conditions. More is the number of microarray experiments selected, better will be the reliability of the reference genes identified by the server. In case of non-availability of the microarray data for the identical experimental conditions being analysed, microarray experiments representing broadly similar conditions may be used for the analysis. Although it is not recommended to use the microarray data of a closely related species to identify the reference genes, candidate reference genes may be shortlisted. It is strongly recommended that expression stability of orthologues of such candidate reference genes should be validated experimentally before their use in the gene expression studies.</p></li>
+<li><p>Log transformation and present call. Log-transformed or linear signal intensity values of the probesets can be used for the analysis. Log transformation of the microarray data has been recommended to make the distribution more symmetric and Gaussian-like. We also suggest the analysis of microarray data in the log-transformed state. In addition, the option of per cent present calls filters the probesets showing present call (detection <em>P</em>-value &lt;0.05) in at least given number (%) of arrays from the total number of selected arrays. For example, the default option of 90% ensures that the expression of each probeset is detected with a present call in at least 90% of the arrays selected for the analysis.</p></li>
+<li><p>Signal intensity range. A good reference gene should have comparable expression level to that of the gene(s) of interest to be analysed under given experimental conditions. There might be cases where the expression level of gene(s) to be analysed is very low, for example, transcription factor-encoding genes.<sup><a reveal-id="DSR032C2" data-open="DSR032C2" class="link link-ref link-reveal xref-bibr">2</a> </sup> For such studies, the highly stable but lowly expressed reference gene(s) might be the best choice for normalization of quantitative gene expression data.<sup><a reveal-id="DSR032C9" data-open="DSR032C9" class="link link-ref link-reveal xref-bibr">9</a> </sup> By defining the signal intensity range in the parameters, reference genes with desired expression level suitable for the given study can be identified.</p></li>
+<li><p>User-defined probeset ids. This option helps users to compare the expression stability of the traditional reference genes or genes of their choice with that of predicted by the PlantRGS, in the selected experiments/arrays. Defining user-defined probesets lists their expression statistics along with those predicted by the server for a comparative analysis of their expression stabilities to identify the most suitable one. This option also helps to identify the most suitable reference gene showing the expression level comparable to the gene(s) of interest.</p></li>
+</ol>
+<h4 scrollto-destination="7213003" id="7213003" class="section-title" data-legacy-id="s3b3">3.2.3 PlantRGS output</h4>
+<p>After the identification of most suitable reference genes by the server, GUI displays results in the form of tables (Fig. <a reveal-id="DSR032F1" data-open="DSR032F1" class="link link-reveal link-table xref-fig">1</a>A) and graph (Fig. <a reveal-id="DSR032F1" data-open="DSR032F1" class="link link-reveal link-table xref-fig">1</a>B). Two tables are generated in the result area, one showing the description (probeset id, gene locus id and gene description) and statistics (mean signal intensity, standard deviation and CV) for the given number of most suitable reference gene predicted by server and user-defined probeset ids (if provided). The detailed information about these genes can be investigated on their respective genome project web sites in web browser through the links provided on the corresponding gene IDs. In the second table, the signal values of the predicted reference genes and user-defined probeset ids (if provided) in all the arrays used for the analysis are displayed, which are used to generate graph for the relative expression levels of the selected probesets. Figure <a reveal-id="DSR032F1" data-open="DSR032F1" class="link link-reveal link-table xref-fig">1</a>A and B shows the screenshots of the 25 most suitable reference genes identified by the PlantRGS from the whole data set of rice along with five user-defined probesets (highlighted in grey) and graph showing their relative expression levels in all the arrays, respectively. </p>                        <a id="7213005" scrollto-destination="7213005"></a>
+<div id="DSR032F1" data-id="DSR032F1" class="fig fig-section">
+<div class="label fig-label">Figure 1.</div>
+<div class="graphic-wrap">
+<img class="content-image" src="https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/dnaresearch/18/6/10.1093/dnares/dsr032/2/m_dsr03201.jpeg?Expires=1576717000&amp;Signature=RY3aCBaAudIo53ZC1sAKCRZDbqrrbZwAGrv-2gLxycq-kAlh-8uGuB1fZvaY1WcHQd-yBNAvIigpCsSSeGA3IPNOiQkNVMRvNqfOEhKV1xkidIUED~Sx2qS-SUW4M3NlRT7qF4Fgwu3cCR~PO0IguVh0IXdq3oOkiCQ-fML6~PW4pj2DisX2qPdgVuf~V4sRbdvReOkd~DDiPULFJkUzgpxpfJpjfxrvmanFNQaFZlmugvSy380gQS-2pK1OUhp~0y7V6mJLw5rGILiasetSrMY8rAMp79Rc6tJsP8iel28QODOmrrXTc7w2VH-swz2Rw8UuaY4LBbkbR2XckV5mtA__&amp;Key-Pair-Id=APKAIE5G5CRDK6RD3PGA" alt="Screenshots of PlantRGS showing results. (A) Screenshot of the results in expression statistics tab showing the list of the most suitable reference genes (probeset ids) predicted by PlantRGS and user-defined probesets (highlighted in grey colour) with their gene locus ID, gene description, mean signal value, standard deviation and CV. (B) Screenshot of the graph tab showing the relative expression levels of all the reference genes predicted by PlantRGS and user-defined probesets in all the arrays (samples/experimental conditions)." path-from-xml="dsr03201.jpeg"><div class="fig-orig original-slide">
+<a class="fig-view-orig js-view-large openInAnotherWindow" href="/view-large/figure/7213005/dsr03201.jpeg" path-from-xml="dsr03201.jpeg" target="_blank">Open in new tab</a><a section="7213005" href="//oup.silverchair-cdn.com/DownloadFile/DownloadImage.aspx?image=https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/dnaresearch/18/6/10.1093/dnares/dsr032/2/dsr03201.jpeg?Expires=1576717000&amp;Signature=Ir5s8DC3cYY7pQZwlvhjjbV393Yh9VQCncylGr3ZHTk~t0sxoneflEmOp~NlwQBiG9SFJ4NfQPoyPrZ4rpLFdYEsOjoL7hQrR6muge-BbWrFEsBOpePoVDXlCjB0Cb2mIc4dt-X9rK9rhBxA4XIsW9QafjUWG2dGYI2FIPcaE503vv-odaSHssfAnUWDNthuuBAUQnt4thY4Ru6BABBsX83bU0vH1owSRQ7qMdRcm-DARQlPciR9jMphXEu7gbxhkFu0meqjX~CeAEXAtsZ6kLrRVh2hltpXrgRqDy7PO4rCMEuRSNeXBfZrKI14seOal8Px-luqcF3NPo3u~dTXbA__&amp;Key-Pair-Id=APKAIE5G5CRDK6RD3PGA&amp;sec=7213005&amp;ar=477571&amp;xsltPath=~/UI/app/XSLT&amp;imagename=&amp;siteId=5275" class="download-slide" path-from-xml="dsr03201.jpeg" target="_blank">Download slide</a>
+</div>
+</div>
+<div class="caption fig-caption"><p>Screenshots of PlantRGS showing results. (A) Screenshot of the results in expression statistics tab showing the list of the most suitable reference genes (probeset ids) predicted by PlantRGS and user-defined probesets (highlighted in grey colour) with their gene locus ID, gene description, mean signal value, standard deviation and CV. (B) Screenshot of the graph tab showing the relative expression levels of all the reference genes predicted by PlantRGS and user-defined probesets in all the arrays (samples/experimental conditions).</p></div>
+</div>
+<div content-id="DSR032F1" class="fig fig-modal reveal-modal">
+<div class="label fig-label">Figure 1.</div>
+<div class="graphic-wrap">
+<img class="content-image" src="https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/dnaresearch/18/6/10.1093/dnares/dsr032/2/m_dsr03201.jpeg?Expires=1576717000&amp;Signature=RY3aCBaAudIo53ZC1sAKCRZDbqrrbZwAGrv-2gLxycq-kAlh-8uGuB1fZvaY1WcHQd-yBNAvIigpCsSSeGA3IPNOiQkNVMRvNqfOEhKV1xkidIUED~Sx2qS-SUW4M3NlRT7qF4Fgwu3cCR~PO0IguVh0IXdq3oOkiCQ-fML6~PW4pj2DisX2qPdgVuf~V4sRbdvReOkd~DDiPULFJkUzgpxpfJpjfxrvmanFNQaFZlmugvSy380gQS-2pK1OUhp~0y7V6mJLw5rGILiasetSrMY8rAMp79Rc6tJsP8iel28QODOmrrXTc7w2VH-swz2Rw8UuaY4LBbkbR2XckV5mtA__&amp;Key-Pair-Id=APKAIE5G5CRDK6RD3PGA" alt="Screenshots of PlantRGS showing results. (A) Screenshot of the results in expression statistics tab showing the list of the most suitable reference genes (probeset ids) predicted by PlantRGS and user-defined probesets (highlighted in grey colour) with their gene locus ID, gene description, mean signal value, standard deviation and CV. (B) Screenshot of the graph tab showing the relative expression levels of all the reference genes predicted by PlantRGS and user-defined probesets in all the arrays (samples/experimental conditions)." path-from-xml="dsr03201.jpeg"><div class="fig-orig original-slide">
+<a class="fig-view-orig js-view-large openInAnotherWindow" href="/view-large/figure/7213005/dsr03201.jpeg" path-from-xml="dsr03201.jpeg" target="_blank">Open in new tab</a><a section="7213005" href="//oup.silverchair-cdn.com/DownloadFile/DownloadImage.aspx?image=https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/dnaresearch/18/6/10.1093/dnares/dsr032/2/dsr03201.jpeg?Expires=1576717000&amp;Signature=Ir5s8DC3cYY7pQZwlvhjjbV393Yh9VQCncylGr3ZHTk~t0sxoneflEmOp~NlwQBiG9SFJ4NfQPoyPrZ4rpLFdYEsOjoL7hQrR6muge-BbWrFEsBOpePoVDXlCjB0Cb2mIc4dt-X9rK9rhBxA4XIsW9QafjUWG2dGYI2FIPcaE503vv-odaSHssfAnUWDNthuuBAUQnt4thY4Ru6BABBsX83bU0vH1owSRQ7qMdRcm-DARQlPciR9jMphXEu7gbxhkFu0meqjX~CeAEXAtsZ6kLrRVh2hltpXrgRqDy7PO4rCMEuRSNeXBfZrKI14seOal8Px-luqcF3NPo3u~dTXbA__&amp;Key-Pair-Id=APKAIE5G5CRDK6RD3PGA&amp;sec=7213005&amp;ar=477571&amp;xsltPath=~/UI/app/XSLT&amp;imagename=&amp;siteId=5275" class="download-slide" path-from-xml="dsr03201.jpeg" target="_blank">Download slide</a>
+</div>
+</div>
+<div class="caption fig-caption"><p>Screenshots of PlantRGS showing results. (A) Screenshot of the results in expression statistics tab showing the list of the most suitable reference genes (probeset ids) predicted by PlantRGS and user-defined probesets (highlighted in grey colour) with their gene locus ID, gene description, mean signal value, standard deviation and CV. (B) Screenshot of the graph tab showing the relative expression levels of all the reference genes predicted by PlantRGS and user-defined probesets in all the arrays (samples/experimental conditions).</p></div>
+</div>                    <h3 scrollto-destination="7213009" id="7213009" class="section-title" data-legacy-id="s3c">3.3. Validation of the PlantRGS results</h3>
+<p>We identified most suitable reference genes for all the nine plants using whole microarray data sets available for each species. A list of top 100 most suitable candidate reference genes identified by PlantRGS is available as <a class="supplementary-data tab-trigger jumplink scrollTo" target="SupplementalTab" href="#supplementary-data" data-tab="#supplementary-data">Supplementary Table S2</a>. Their gene description shows that most of these represent novel reference genes involved in various cellular processes. A few case studies were performed to validate the results obtained from PlantRGS. The results were assessed using a widely used statistical algorithm, geNorm,<sup><a reveal-id="DSR032C20" data-open="DSR032C20" class="link link-ref link-reveal xref-bibr">20</a></sup> which calculates the <em>M</em> value for each gene being analysed. The gene with lowest <em>M</em> value is considered to have most stable expression and rank higher. We identified most suitable reference genes for the whole data sets of rice and <em>Arabidopsis</em> using PlantRGS and compared their expression statistics with that of traditional reference genes followed by validation of their expression stability using geNorm. In addition, we also compared the results obtained from PlantRGS and those reported in the previous studies using smaller data sets.</p>                    <h4 scrollto-destination="7213013" id="7213013" class="section-title" data-legacy-id="s3c1">3.3.1. Validation of most suitable reference genes from whole data set of rice</h4>
+<p>Using the whole microarray data set of rice comprised of 688 arrays, we identified top 25 most suitable candidate reference genes using default parameters and specifying six user-defined probesets for traditionally used reference genes (representing ubiquitin, actin, GAPDH and tubulin) using PlantRGS. All the reference genes predicted by PlantRGS ranked higher in terms of their expression stability (lower CV) than the traditional reference genes (Fig. <a reveal-id="DSR032F2" data-open="DSR032F2" class="link link-reveal link-table xref-fig">2</a>A). Further, the assessment by geNorm also showed lower <em>M</em> value and hence more expression stability of the reference genes identified by the PlantRGS in comparison to the traditional reference genes (Fig. <a reveal-id="DSR032F2" data-open="DSR032F2" class="link link-reveal link-table xref-fig">2</a>A). Although one traditional reference gene encoding for ubiquitin (Os.5425.1.S1_at) was comparable with novel reference genes in terms of <em>M</em> value, it ranked lower due to marginally higher <em>M</em> value and CV. Mean signal intensity was higher for most of the traditional reference genes with higher standard deviation, indicating their higher and variable expression across the experimental conditions. The most suitable reference genes identified from the whole data set of rice may be used for normalization of quantitative gene expression data from a wide variety of experimental conditions. </p>                        <a id="7213019" scrollto-destination="7213019"></a>
+<div id="DSR032F2" data-id="DSR032F2" class="fig fig-section">
+<div class="label fig-label">Figure 2.</div>
+<div class="graphic-wrap">
+<img class="content-image" src="https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/dnaresearch/18/6/10.1093/dnares/dsr032/2/m_dsr03202.jpeg?Expires=1576717000&amp;Signature=Y0ncsbF34J2eGnL6aGPsKESCtUF7~2zAJch-nA63xjPDr2yQtr~GNXspqsZraL6K~Ej6H7vZAWeQ2Y~WKZ6BWNVocVydnNMIF80wBG6dd8l-iyOWwN~Mi3lt07-uu00qD2YNDfDN3Bkth0LF~ocBY7WVCig6Xjr0pVVO65K8wWj91UZTKkAPEiGnDSm8HrGLXjCPNm69ENi-0p2~Dmwn2U2-qaqwewu4g8-zIL96zLKXl4UkHrMnQv8c9g2zY6RxmDdqbsQYvpUe3UgbjPFcmeJTW-~nrVbxJ5TDRaE0K49b8n0Yv2dYjbcPWKpqWN68pu1M4Zil8foI25e4-k~m8g__&amp;Key-Pair-Id=APKAIE5G5CRDK6RD3PGA" alt="Validation of the results obtained by PlantRGS for whole data set of rice (A) and Arabidopsis (B). The expression stability (M, represented by bars) of top 25 novel reference genes predicted by PlantRGS (open bars) and five traditionally used reference genes (black bars) were calculated by geNorm in all the arrays/experiments available for rice and Arabidopsis. A lower value of M (scale on left axis) indicates higher expression stability. The line with triangles indicates CV for each gene (scale on left axis), and the line with points indicates mean signal intensity (scale on right axis) with standard deviation (error bars)." path-from-xml="dsr03202.jpeg"><div class="fig-orig original-slide">
+<a class="fig-view-orig js-view-large openInAnotherWindow" href="/view-large/figure/7213019/dsr03202.jpeg" path-from-xml="dsr03202.jpeg" target="_blank">Open in new tab</a><a section="7213019" href="//oup.silverchair-cdn.com/DownloadFile/DownloadImage.aspx?image=https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/dnaresearch/18/6/10.1093/dnares/dsr032/2/dsr03202.jpeg?Expires=1576717000&amp;Signature=OUNvyUYKPRGPigwfUuJwxOh8Zdet-tH0OImFuEx31YNs0I0ZbZpcjcvlivzK9f0gox0a8MD7PntbaY4z3ts6eFJLWY~srZp3RZlF5H9hf9HBpusbog52yDKlWc5Uv61GosJ72zBjVl2JXFYvTHUp7k6iaaqJmqKEe1HH6pMeKFLJkZ0jbOQPKL3M6ZESpaYGv26suDfUvPwpmDE24prcnXnBScpffeaphfekKsL~R1fwdBMYzjCM5BuFYhLjX62kICQZ-pbEny7ry65xiw0yEDZ6lbsUJTb~LqubwZwcOW8hlNyW7P4hEjveQTXGMxPk-oXZc9LBBfkfm1vbzNg1mA__&amp;Key-Pair-Id=APKAIE5G5CRDK6RD3PGA&amp;sec=7213019&amp;ar=477571&amp;xsltPath=~/UI/app/XSLT&amp;imagename=&amp;siteId=5275" class="download-slide" path-from-xml="dsr03202.jpeg" target="_blank">Download slide</a>
+</div>
+</div>
+<div class="caption fig-caption"><p>Validation of the results obtained by PlantRGS for whole data set of rice (A) and <em>Arabidopsis</em> (B). The expression stability (<em>M</em>, represented by bars) of top 25 novel reference genes predicted by PlantRGS (open bars) and five traditionally used reference genes (black bars) were calculated by geNorm in all the arrays/experiments available for rice and <em>Arabidopsis</em>. A lower value of <em>M</em> (scale on left axis) indicates higher expression stability. The line with triangles indicates CV for each gene (scale on left axis), and the line with points indicates mean signal intensity (scale on right axis) with standard deviation (error bars).</p></div>
+</div>
+<div content-id="DSR032F2" class="fig fig-modal reveal-modal">
+<div class="label fig-label">Figure 2.</div>
+<div class="graphic-wrap">
+<img class="content-image" src="https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/dnaresearch/18/6/10.1093/dnares/dsr032/2/m_dsr03202.jpeg?Expires=1576717000&amp;Signature=Y0ncsbF34J2eGnL6aGPsKESCtUF7~2zAJch-nA63xjPDr2yQtr~GNXspqsZraL6K~Ej6H7vZAWeQ2Y~WKZ6BWNVocVydnNMIF80wBG6dd8l-iyOWwN~Mi3lt07-uu00qD2YNDfDN3Bkth0LF~ocBY7WVCig6Xjr0pVVO65K8wWj91UZTKkAPEiGnDSm8HrGLXjCPNm69ENi-0p2~Dmwn2U2-qaqwewu4g8-zIL96zLKXl4UkHrMnQv8c9g2zY6RxmDdqbsQYvpUe3UgbjPFcmeJTW-~nrVbxJ5TDRaE0K49b8n0Yv2dYjbcPWKpqWN68pu1M4Zil8foI25e4-k~m8g__&amp;Key-Pair-Id=APKAIE5G5CRDK6RD3PGA" alt="Validation of the results obtained by PlantRGS for whole data set of rice (A) and Arabidopsis (B). The expression stability (M, represented by bars) of top 25 novel reference genes predicted by PlantRGS (open bars) and five traditionally used reference genes (black bars) were calculated by geNorm in all the arrays/experiments available for rice and Arabidopsis. A lower value of M (scale on left axis) indicates higher expression stability. The line with triangles indicates CV for each gene (scale on left axis), and the line with points indicates mean signal intensity (scale on right axis) with standard deviation (error bars)." path-from-xml="dsr03202.jpeg"><div class="fig-orig original-slide">
+<a class="fig-view-orig js-view-large openInAnotherWindow" href="/view-large/figure/7213019/dsr03202.jpeg" path-from-xml="dsr03202.jpeg" target="_blank">Open in new tab</a><a section="7213019" href="//oup.silverchair-cdn.com/DownloadFile/DownloadImage.aspx?image=https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/dnaresearch/18/6/10.1093/dnares/dsr032/2/dsr03202.jpeg?Expires=1576717000&amp;Signature=OUNvyUYKPRGPigwfUuJwxOh8Zdet-tH0OImFuEx31YNs0I0ZbZpcjcvlivzK9f0gox0a8MD7PntbaY4z3ts6eFJLWY~srZp3RZlF5H9hf9HBpusbog52yDKlWc5Uv61GosJ72zBjVl2JXFYvTHUp7k6iaaqJmqKEe1HH6pMeKFLJkZ0jbOQPKL3M6ZESpaYGv26suDfUvPwpmDE24prcnXnBScpffeaphfekKsL~R1fwdBMYzjCM5BuFYhLjX62kICQZ-pbEny7ry65xiw0yEDZ6lbsUJTb~LqubwZwcOW8hlNyW7P4hEjveQTXGMxPk-oXZc9LBBfkfm1vbzNg1mA__&amp;Key-Pair-Id=APKAIE5G5CRDK6RD3PGA&amp;sec=7213019&amp;ar=477571&amp;xsltPath=~/UI/app/XSLT&amp;imagename=&amp;siteId=5275" class="download-slide" path-from-xml="dsr03202.jpeg" target="_blank">Download slide</a>
+</div>
+</div>
+<div class="caption fig-caption"><p>Validation of the results obtained by PlantRGS for whole data set of rice (A) and <em>Arabidopsis</em> (B). The expression stability (<em>M</em>, represented by bars) of top 25 novel reference genes predicted by PlantRGS (open bars) and five traditionally used reference genes (black bars) were calculated by geNorm in all the arrays/experiments available for rice and <em>Arabidopsis</em>. A lower value of <em>M</em> (scale on left axis) indicates higher expression stability. The line with triangles indicates CV for each gene (scale on left axis), and the line with points indicates mean signal intensity (scale on right axis) with standard deviation (error bars).</p></div>
+</div>                    <h4 scrollto-destination="7213023" id="7213023" class="section-title" data-legacy-id="s3c2">3.3.2. Validation of most suitable reference genes from whole data set of Arabidopsis</h4>
+<p>A total of 5689 arrays of <em>Arabidopsis</em> representing wide variety of experimental conditions and tissue types were analysed for the identification of most suitable reference genes using default parameters. All the top 25 reference genes predicted by the server were superior in terms of expression stability exhibiting lower CV and <em>M</em> value when compared with the six traditionally used reference genes, including polyubiquitin, actin, tubulin, EF1-α and GAPDH (Fig. <a reveal-id="DSR032F2" data-open="DSR032F2" class="link link-reveal link-table xref-fig">2</a>B). The <em>M</em> value was significantly higher for most of the traditional reference genes indicating their lower expression stability.</p>                    <h4 scrollto-destination="7213028" id="7213028" class="section-title" data-legacy-id="s3c3">3.3.3. Comparison with previously identified reference genes</h4>
+<p>We have also compared the results of PlantRGS with those reported in previous studies using a subset of microarray data for rice and <em>Arabidopsis</em>. We used the same microarray data set(s) used in previous studies and identified most suitable reference genes using our server and compared the results. The analysis revealed that among the top five reference genes identified by Narsai <em>et al</em>.<sup><a reveal-id="DSR032C19" data-open="DSR032C19" class="link link-ref link-reveal xref-bibr">19</a></sup> using microarray data for different stress conditions in rice; four were included in the top 25 genes identified by the PlantRGS with a comparable <em>M</em> value and CV (<a class="supplementary-data tab-trigger jumplink scrollTo" target="SupplementalTab" href="#supplementary-data" data-tab="#supplementary-data">Supplementary Fig. S2A</a>). A comparison with the reference genes identified for different developmental stages in rice<sup><a reveal-id="DSR032C17" data-open="DSR032C17" class="link link-ref link-reveal xref-bibr">17</a></sup> showed that the top 25 genes predicted by the server outperformed the previously identified genes (<a class="supplementary-data tab-trigger jumplink scrollTo" target="SupplementalTab" href="#supplementary-data" data-tab="#supplementary-data">Supplementary Fig. S2B</a>). Likewise, we also compared the results for various developmental stages and abiotic stress conditions in <em>Arabidopsis</em> reported by Czechowski <em>et al</em>.<sup><a reveal-id="DSR032C9" data-open="DSR032C9" class="link link-ref link-reveal xref-bibr">9</a></sup> using the same microarray data sets. In both data sets, we found the reference genes predicted by the PlantRGS performed better or comparable to the previously identified reference genes (<a class="supplementary-data tab-trigger jumplink scrollTo" target="SupplementalTab" href="#supplementary-data" data-tab="#supplementary-data">Supplementary Fig. S2C and D</a>). It is noteworthy, that in all the above case studies, the reference genes predicted by the server outperformed the traditionally used reference genes in terms of expression stability.</p>                    <h2 scrollto-destination="7213031" id="7213031" class="section-title" data-legacy-id="s4">4. Discussion</h2>
+<p>RT–qPCR is a very powerful tool for the accurate and reliable quantification of gene expression, if implicated without any systematic errors. The most common source of error in the RT–qPCR results is the inappropriate choice of reference gene(s) for normalization, which may lead to erroneous results. Therefore, the identification of most suitable reference genes for a particular set of experimental conditions and their systematic validation is crucial for quantitative gene expression studies. Although efforts to identify the most suitable reference gene(s) for a particular study followed by validation before their use have been increasing, unfortunately, however, its importance is still being disregarded. This problem is mainly due to the poor availability of user-friendly tools and resources, and requirement of substantial time and efforts. The web server, PlantRGS, developed in this study, provides user-friendly, interactive and platform-independent GUI tool for the identification of most suitable candidate reference gene(s), which adopts Java 2 Swing technology for automatic and very fast processing of a large amount of microarray data with minimal technical skills.</p>
+<p>A few previous studies have suggested the use of microarray data for the identification of better candidate reference gene(s) for RT–qPCR data normalization.<sup><a reveal-id="DSR032C9" data-open="DSR032C9" class="link link-ref link-reveal xref-bibr">9</a>,<a reveal-id="DSR032C17" data-open="DSR032C17" class="link link-ref link-reveal xref-bibr">17</a>,<a reveal-id="DSR032C19" data-open="DSR032C19" class="link link-ref link-reveal xref-bibr">19</a></sup> Czechowski <em>et al.</em><sup><a reveal-id="DSR032C9" data-open="DSR032C9" class="link link-ref link-reveal xref-bibr">9</a></sup> reported the first use of microarray data for the identification of superior reference genes. Recently, using microarray data sets encompassing organ, development, biotic and abiotic conditions, 151 genes with relatively stable expression under all conditions were identified in rice.<sup><a reveal-id="DSR032C19" data-open="DSR032C19" class="link link-ref link-reveal xref-bibr">19</a></sup> The microarray data analysis-based strategy has been implemented in PlantRGS also, for the identification of most suitable candidate reference gene(s) under given experimental conditions. PlantRGS utilizes the whole microarray data set available for a plant species or for a specific biological context (e.g. developmental stage/tissue-type, abiotic stress, biotic stress and hormone treatment etc.), for the identification of best candidate reference gene(s) with minimum expression variance. The selection of signal intensity range is a very important feature of the PlantRGS, which facilitates the identification of a reference gene(s) having expression levels similar to the gene(s) of interest. The geNorm-based statistical analysis validated the better performance of the novel candidate reference genes identified by PlantRGS when compared with traditionally used housekeeping genes. However, it is recommended that the stable expression of candidate reference genes identified by PlantRGS should further be validated experimentally before using for normalization. Further, in case the orthologues of reference genes identified for one plant species are being used for normalization in other species, the validation of expression stability is must. Recently, Narsai <em>et al.</em><sup><a reveal-id="DSR032C19" data-open="DSR032C19" class="link link-ref link-reveal xref-bibr">19</a></sup> showed that among the 15 orthologues of novel <em>Arabidopsis</em> reference genes,<sup><a reveal-id="DSR032C9" data-open="DSR032C9" class="link link-ref link-reveal xref-bibr">9</a></sup> only one exhibited stable expression in rice, suggesting that caution must be taken while selecting reference genes from other plant species.</p>
+<p>Recently, next-generation sequencing (NGS) technologies are being increasingly used for the quantification of gene expression. Although these technologies provide high throughput and absolute abundance of the transcripts, their high cost and less data availability remain a drawback when compared with the microarray studies as of now for global gene expression profiling. In addition, the choice of statistical methods for normalization and expression analysis using NGS data is a challenge.<sup><a reveal-id="DSR032C22" data-open="DSR032C22" class="link link-ref link-reveal xref-bibr">22</a></sup> A few studies have been performed using sequence-based approach for the identification of suitable reference genes.<sup><a reveal-id="DSR032C23" data-open="DSR032C23" class="link link-ref link-reveal xref-bibr">23</a>,<a reveal-id="DSR032C24" data-open="DSR032C24" class="link link-ref link-reveal xref-bibr">24</a></sup> We propose that the concept/method used in PlantRGS may be used for the identification of candidate reference genes from NGS data in future with the availability of more data and better statistical methods for the analysis.</p>                    <h2 scrollto-destination="7213040" id="7213040" class="section-title" data-legacy-id="s5">5. Conclusion</h2>
+<p>In this study, we have developed a user-friendly web server tool, PlantRGS, for the identification of most suitable reference genes under selected experimental conditions using microarray data for various plant species. Various features implemented in PlantRGS allow the identification of best suitable reference gene(s) for a given study. Validation studies showed that the novel reference genes identified by PlantRGS outperform the traditionally used reference genes and are better candidates for gene expression normalization. We anticipate that the availability of this tool will facilitate immensely the reliability and accuracy of the quantitative gene expression studies in plants.</p>                    <h2 scrollto-destination="7213045" id="7213045" class="section-title" data-legacy-id="s6">6. Availability</h2>
+<p>The PlantRGS web server is publicly available at <a class="link link-uri" href="http://www.nipgr.res.in/PlantRGS">http://www.nipgr.res.in/PlantRGS</a> to all the users without any login/subscription requirement.</p>                    <h2 scrollto-destination="7213050" id="7213050" class="section-title" data-legacy-id="s7">Supplementary data</h2>
+<p><a class="supplementary-data tab-trigger jumplink scrollTo" target="SupplementalTab" href="#supplementary-data" data-tab="#supplementary-data">Supplementary data are available at www.dnaresearch.oxfordjournals.org.</a></p>                    <h2 scrollto-destination="7213054" id="7213054" class="section-title" data-legacy-id="s8">Funding</h2>
+<p>This study was supported financially by the Department of Biotechnology, Government of India, New Delhi, India, under the Next Generation Challenge Programme on Chickpea Genomics and IYBA scheme, and core grant from the NIPGR.</p>                    <h2 scrollto-destination="7213058" id="7213058" class="backreferences-title">References</h2>
+<div class="ref-list">
+<div content-id="DSR032C1" xmlns:helper="urn:XsltStringHelper"><div class="ref false"><div role="DSR032C1" class="ref-content ">
+<div class="label">1</div>
+<div class="citation element-citation">
+<div class="person-group">
+<div class="name">
+<div class="surname">Clarke</div> <div class="given-names">J.D.</div>
+</div>,  <div class="name">
+<div class="surname">Zhu</div> <div class="given-names">T.</div>
+</div>. </div>
+<div class="article-title">Microarray analysis of the transcriptome as a stepping stone towards understanding biological systems: practical considerations and perspectives</div>, <div class="source">Plant J.</div> , <div class="year">2006</div>, vol. <div class="volume">45</div> (pg. <div class="fpage">630</div>-<div class="lpage">50</div>)<div class="citation-links">
+<div class="google-scholar-ref-link"><a class="openInAnotherWindow" href="https://scholar.google.com/scholar_lookup?title=Microarray%20analysis%20of%20the%20transcriptome%20as%20a%20stepping%20stone%20towards%20understanding%20biological%20systems%3A%20practical%20considerations%20and%20perspectives&amp;author=J.D.%20Clarke&amp;author=T.%20Zhu&amp;publication_year=2006&amp;journal=Plant%20J.&amp;volume=45&amp;pages=630-50" target="_blank">Google Scholar</a></div>
+<div class="crossref-doi js-ref-link"><a class="openInAnotherWindow" href="http://dx.doi.org/10.1111/tpj.2006.45.issue-4" target="_blank">Crossref</a></div>
+<div class="adsDoiReference hide"><a class="openInAnotherWindow" href="http://adsabs.harvard.edu/cgi-bin/basic_connect?qsearch=10.1111%2Ftpj.2006.45.issue-4" target="_blank">Search ADS</a></div>
+<div class="xslopenurl" style="display:none"><span class="inst-open-url-holders" data-targetid="10.1111%2Ftpj.2006.45.issue-4"> </span></div>
+<div class="pub-id"><a href="http://www.ncbi.nlm.nih.gov/pubmed/16441353" class="link link-pub-id openInAnotherWindow" target="_blank">PubMed</a></div>
+<div class="worldcat-reference-ref-link js-worldcat-preview-ref-link" style="display:none"><a class="openInAnotherWindow" href="https://www.worldcat.org/search?q=ti:Microarray%20analysis%20of%20the%20transcriptome%20as%20a%20stepping%20stone%20towards%20understanding%20biological%20systems%3A%20practical%20considerations%20and%20perspectives&amp;qt=advanced&amp;dblist=638" target="_blank">WorldCat</a></div> </div>
+</div>
+</div></div></div>
+<div content-id="DSR032C2" xmlns:helper="urn:XsltStringHelper"><div class="ref false"><div role="DSR032C2" class="ref-content ">
+<div class="label">2</div>
+<div class="citation element-citation">
+<div class="person-group">
+<div class="name">
+<div class="surname">Czechowski</div> <div class="given-names">T.</div>
+</div>,  <div class="name">
+<div class="surname">Bari</div> <div class="given-names">R.P.</div>
+</div>,  <div class="name">
+<div class="surname">Stitt</div> <div class="given-names">M.</div>
+</div>,  <div class="name">
+<div class="surname">Scheible</div> <div class="given-names">W.R.</div>
+</div>,  <div class="name">
+<div class="surname">Udvardi</div> <div class="given-names">M.K.</div>
+</div>. </div>
+<div class="article-title">Real-time RT–PCR profiling of over 1400 <em>Arabidopsis</em> transcription factors: unprecedented sensitivity reveals novel root- and shoot-specific genes</div>, <div class="source">Plant J.</div> , <div class="year">2004</div>, vol. <div class="volume">38</div> (pg. <div class="fpage">366</div>-<div class="lpage">79</div>)<div class="citation-links">
+<div class="google-scholar-ref-link"><a class="openInAnotherWindow" href="https://scholar.google.com/scholar_lookup?title=Real-time%20RT%E2%80%93PCR%20profiling%20of%20over%201400%20Arabidopsis%20transcription%20factors%3A%20unprecedented%20sensitivity%20reveals%20novel%20root-%20and%20shoot-specific%20genes&amp;author=T.%20Czechowski&amp;author=R.P.%20Bari&amp;author=M.%20Stitt&amp;author=W.R.%20Scheible&amp;author=M.K.%20Udvardi&amp;publication_year=2004&amp;journal=Plant%20J.&amp;volume=38&amp;pages=366-79" target="_blank">Google Scholar</a></div>
+<div class="crossref-doi js-ref-link"><a class="openInAnotherWindow" href="http://dx.doi.org/10.1111/tpj.2004.38.issue-2" target="_blank">Crossref</a></div>
+<div class="adsDoiReference hide"><a class="openInAnotherWindow" href="http://adsabs.harvard.edu/cgi-bin/basic_connect?qsearch=10.1111%2Ftpj.2004.38.issue-2" target="_blank">Search ADS</a></div>
+<div class="xslopenurl" style="display:none"><span class="inst-open-url-holders" data-targetid="10.1111%2Ftpj.2004.38.issue-2"> </span></div>
+<div class="pub-id"><a href="http://www.ncbi.nlm.nih.gov/pubmed/15078338" class="link link-pub-id openInAnotherWindow" target="_blank">PubMed</a></div>
+<div class="worldcat-reference-ref-link js-worldcat-preview-ref-link" style="display:none"><a class="openInAnotherWindow" href="https://www.worldcat.org/search?q=ti:Real-time%20RT%E2%80%93PCR%20profiling%20of%20over%201400%20Arabidopsis%20transcription%20factors%3A%20unprecedented%20sensitivity%20reveals%20novel%20root-%20and%20shoot-specific%20genes&amp;qt=advanced&amp;dblist=638" target="_blank">WorldCat</a></div> </div>
+</div>
+</div></div></div>
+<div content-id="DSR032C3" xmlns:helper="urn:XsltStringHelper"><div class="ref false"><div role="DSR032C3" class="ref-content ">
+<div class="label">3</div>
+<div class="citation element-citation">
+<div class="person-group">
+<div class="name">
+<div class="surname">Gachon</div> <div class="given-names">C.</div>
+</div>,  <div class="name">
+<div class="surname">Mingam</div> <div class="given-names">A.</div>
+</div>,  <div class="name">
+<div class="surname">Charrier</div> <div class="given-names">B.</div>
+</div>. </div>
+<div class="article-title">Real-time PCR: what relevance to plant studies?</div>, <div class="source">J. Exp. Bot.</div> , <div class="year">2004</div>, vol. <div class="volume">55</div> (pg. <div class="fpage">1445</div>-<div class="lpage">54</div>)<div class="citation-links">
+<div class="google-scholar-ref-link"><a class="openInAnotherWindow" href="https://scholar.google.com/scholar_lookup?title=Real-time%20PCR%3A%20what%20relevance%20to%20plant%20studies%3F&amp;author=C.%20Gachon&amp;author=A.%20Mingam&amp;author=B.%20Charrier&amp;publication_year=2004&amp;journal=J.%20Exp.%20Bot.&amp;volume=55&amp;pages=1445-54" target="_blank">Google Scholar</a></div>
+<div class="crossref-doi js-ref-link"><a class="openInAnotherWindow" href="http://dx.doi.org/10.1093/jxb/erh181" target="_blank">Crossref</a></div>
+<div class="adsDoiReference hide"><a class="openInAnotherWindow" href="http://adsabs.harvard.edu/cgi-bin/basic_connect?qsearch=10.1093%2Fjxb%2Ferh181" target="_blank">Search ADS</a></div>
+<div class="xslopenurl" style="display:none"><span class="inst-open-url-holders" data-targetid="10.1093%2Fjxb%2Ferh181"> </span></div>
+<div class="pub-id"><a href="http://www.ncbi.nlm.nih.gov/pubmed/15208338" class="link link-pub-id openInAnotherWindow" target="_blank">PubMed</a></div>
+<div class="worldcat-reference-ref-link js-worldcat-preview-ref-link" style="display:none"><a class="openInAnotherWindow" href="https://www.worldcat.org/search?q=ti:Real-time%20PCR%3A%20what%20relevance%20to%20plant%20studies%3F&amp;qt=advanced&amp;dblist=638" target="_blank">WorldCat</a></div> </div>
+</div>
+</div></div></div>
+<div content-id="DSR032C4" xmlns:helper="urn:XsltStringHelper"><div class="ref false"><div role="DSR032C4" class="ref-content ">
+<div class="label">4</div>
+<div class="citation element-citation">
+<div class="person-group">
+<div class="name">
+<div class="surname">Garg</div> <div class="given-names">R.</div>
+</div>,  <div class="name">
+<div class="surname">Jhanwar</div> <div class="given-names">S.</div>
+</div>,  <div class="name">
+<div class="surname">Tyagi</div> <div class="given-names">A.K.</div>
+</div>,  <div class="name">
+<div class="surname">Jain</div> <div class="given-names">M.</div>
+</div>. </div>
+<div class="article-title">Genome-wide survey and expression analysis suggest diverse roles of glutaredoxin gene family members during development and response to various stimuli in rice</div>, <div class="source">DNA Res.</div> , <div class="year">2010</div>, vol. <div class="volume">17</div> (pg. <div class="fpage">353</div>-<div class="lpage">67</div>)<div class="citation-links">
+<div class="google-scholar-ref-link"><a class="openInAnotherWindow" href="https://scholar.google.com/scholar_lookup?title=Genome-wide%20survey%20and%20expression%20analysis%20suggest%20diverse%20roles%20of%20glutaredoxin%20gene%20family%20members%20during%20development%20and%20response%20to%20various%20stimuli%20in%20rice&amp;author=R.%20Garg&amp;author=S.%20Jhanwar&amp;author=A.K.%20Tyagi&amp;author=M.%20Jain&amp;publication_year=2010&amp;journal=DNA%20Res.&amp;volume=17&amp;pages=353-67" target="_blank">Google Scholar</a></div>
+<div class="crossref-doi js-ref-link"><a class="openInAnotherWindow" href="http://dx.doi.org/10.1093/dnares/dsq023" target="_blank">Crossref</a></div>
+<div class="adsDoiReference hide"><a class="openInAnotherWindow" href="http://adsabs.harvard.edu/cgi-bin/basic_connect?qsearch=10.1093%2Fdnares%2Fdsq023" target="_blank">Search ADS</a></div>
+<div class="xslopenurl" style="display:none"><span class="inst-open-url-holders" data-targetid="10.1093%2Fdnares%2Fdsq023"> </span></div>
+<div class="pub-id"><a href="http://www.ncbi.nlm.nih.gov/pubmed/21044985" class="link link-pub-id openInAnotherWindow" target="_blank">PubMed</a></div>
+<div class="worldcat-reference-ref-link js-worldcat-preview-ref-link" style="display:none"><a class="openInAnotherWindow" href="https://www.worldcat.org/search?q=ti:Genome-wide%20survey%20and%20expression%20analysis%20suggest%20diverse%20roles%20of%20glutaredoxin%20gene%20family%20members%20during%20development%20and%20response%20to%20various%20stimuli%20in%20rice&amp;qt=advanced&amp;dblist=638" target="_blank">WorldCat</a></div> </div>
+</div>
+</div></div></div>
+<div content-id="DSR032C5" xmlns:helper="urn:XsltStringHelper"><div class="ref false"><div role="DSR032C5" class="ref-content ">
+<div class="label">5</div>
+<div class="citation element-citation">
+<div class="person-group">
+<div class="name">
+<div class="surname">Nolan</div> <div class="given-names">T.</div>
+</div>,  <div class="name">
+<div class="surname">Hands</div> <div class="given-names">R.E.</div>
+</div>,  <div class="name">
+<div class="surname">Bustin</div> <div class="given-names">S.A.</div>
+</div>. </div>
+<div class="article-title">Quantification of mRNA using real-time RT–PCR</div>, <div class="source">Nat. Protoc.</div> , <div class="year">2006</div>, vol. <div class="volume">1</div> (pg. <div class="fpage">1559</div>-<div class="lpage">82</div>)<div class="citation-links">
+<div class="google-scholar-ref-link"><a class="openInAnotherWindow" href="https://scholar.google.com/scholar_lookup?title=Quantification%20of%20mRNA%20using%20real-time%20RT%E2%80%93PCR&amp;author=T.%20Nolan&amp;author=R.E.%20Hands&amp;author=S.A.%20Bustin&amp;publication_year=2006&amp;journal=Nat.%20Protoc.&amp;volume=1&amp;pages=1559-82" target="_blank">Google Scholar</a></div>
+<div class="crossref-doi js-ref-link"><a class="openInAnotherWindow" href="http://dx.doi.org/10.1038/nprot.2006.236" target="_blank">Crossref</a></div>
+<div class="adsDoiReference hide"><a class="openInAnotherWindow" href="http://adsabs.harvard.edu/cgi-bin/basic_connect?qsearch=10.1038%2Fnprot.2006.236" target="_blank">Search ADS</a></div>
+<div class="xslopenurl" style="display:none"><span class="inst-open-url-holders" data-targetid="10.1038%2Fnprot.2006.236"> </span></div>
+<div class="pub-id"><a href="http://www.ncbi.nlm.nih.gov/pubmed/17406449" class="link link-pub-id openInAnotherWindow" target="_blank">PubMed</a></div>
+<div class="worldcat-reference-ref-link js-worldcat-preview-ref-link" style="display:none"><a class="openInAnotherWindow" href="https://www.worldcat.org/search?q=ti:Quantification%20of%20mRNA%20using%20real-time%20RT%E2%80%93PCR&amp;qt=advanced&amp;dblist=638" target="_blank">WorldCat</a></div> </div>
+</div>
+</div></div></div>
+<div content-id="DSR032C6" xmlns:helper="urn:XsltStringHelper"><div class="ref false"><div role="DSR032C6" class="ref-content ">
+<div class="label">6</div>
+<div class="citation element-citation">
+<div class="person-group">
+<div class="name">
+<div class="surname">Thellin</div> <div class="given-names">O.</div>
+</div>,  <div class="name">
+<div class="surname">Zorzi</div> <div class="given-names">W.</div>
+</div>,  <div class="name">
+<div class="surname">Lakaye</div> <div class="given-names">B.</div>
+</div>, et al. </div>
+<div class="article-title">Housekeeping genes as internal standards: use and limits</div>, <div class="source">J. Biotechnol.</div> , <div class="year">1999</div>, vol. <div class="volume">75</div> (pg. <div class="fpage">291</div>-<div class="lpage">5</div>)<div class="citation-links">
+<div class="google-scholar-ref-link"><a class="openInAnotherWindow" href="https://scholar.google.com/scholar_lookup?title=Housekeeping%20genes%20as%20internal%20standards%3A%20use%20and%20limits&amp;author=O.%20Thellin&amp;author=W.%20Zorzi&amp;author=B.%20Lakaye&amp;publication_year=1999&amp;journal=J.%20Biotechnol.&amp;volume=75&amp;pages=291-5" target="_blank">Google Scholar</a></div>
+<div class="crossref-doi js-ref-link"><a class="openInAnotherWindow" href="http://dx.doi.org/10.1016/S0168-1656(99)00163-7" target="_blank">Crossref</a></div>
+<div class="adsDoiReference hide"><a class="openInAnotherWindow" href="http://adsabs.harvard.edu/cgi-bin/basic_connect?qsearch=10.1016%2FS0168-1656(99)00163-7" target="_blank">Search ADS</a></div>
+<div class="xslopenurl" style="display:none"><span class="inst-open-url-holders" data-targetid="10.1016%2FS0168-1656(99)00163-7"> </span></div>
+<div class="pub-id"><a href="http://www.ncbi.nlm.nih.gov/pubmed/10617337" class="link link-pub-id openInAnotherWindow" target="_blank">PubMed</a></div>
+<div class="worldcat-reference-ref-link js-worldcat-preview-ref-link" style="display:none"><a class="openInAnotherWindow" href="https://www.worldcat.org/search?q=ti:Housekeeping%20genes%20as%20internal%20standards%3A%20use%20and%20limits&amp;qt=advanced&amp;dblist=638" target="_blank">WorldCat</a></div> </div>
+</div>
+</div></div></div>
+<div content-id="DSR032C7" xmlns:helper="urn:XsltStringHelper"><div class="ref false"><div role="DSR032C7" class="ref-content ">
+<div class="label">7</div>
+<div class="citation element-citation">
+<div class="person-group">
+<div class="name">
+<div class="surname">Schmittgen</div> <div class="given-names">T.D.</div>
+</div>,  <div class="name">
+<div class="surname">Zakrajsek</div> <div class="given-names">B.A.</div>
+</div>. </div>
+<div class="article-title">Effect of experimental treatment on housekeeping gene expression: validation by real-time, quantitative RT–PCR</div>, <div class="source">J. Biochem. Biophys. Methods</div> , <div class="year">2000</div>, vol. <div class="volume">46</div> (pg. <div class="fpage">69</div>-<div class="lpage">81</div>)<div class="citation-links">
+<div class="google-scholar-ref-link"><a class="openInAnotherWindow" href="https://scholar.google.com/scholar_lookup?title=Effect%20of%20experimental%20treatment%20on%20housekeeping%20gene%20expression%3A%20validation%20by%20real-time%2C%20quantitative%20RT%E2%80%93PCR&amp;author=T.D.%20Schmittgen&amp;author=B.A.%20Zakrajsek&amp;publication_year=2000&amp;journal=J.%20Biochem.%20Biophys.%20Methods&amp;volume=46&amp;pages=69-81" target="_blank">Google Scholar</a></div>
+<div class="crossref-doi js-ref-link"><a class="openInAnotherWindow" href="http://dx.doi.org/10.1016/S0165-022X(00)00129-9" target="_blank">Crossref</a></div>
+<div class="adsDoiReference hide"><a class="openInAnotherWindow" href="http://adsabs.harvard.edu/cgi-bin/basic_connect?qsearch=10.1016%2FS0165-022X(00)00129-9" target="_blank">Search ADS</a></div>
+<div class="xslopenurl" style="display:none"><span class="inst-open-url-holders" data-targetid="10.1016%2FS0165-022X(00)00129-9"> </span></div>
+<div class="pub-id"><a href="http://www.ncbi.nlm.nih.gov/pubmed/11086195" class="link link-pub-id openInAnotherWindow" target="_blank">PubMed</a></div>
+<div class="worldcat-reference-ref-link js-worldcat-preview-ref-link" style="display:none"><a class="openInAnotherWindow" href="https://www.worldcat.org/search?q=ti:Effect%20of%20experimental%20treatment%20on%20housekeeping%20gene%20expression%3A%20validation%20by%20real-time%2C%20quantitative%20RT%E2%80%93PCR&amp;qt=advanced&amp;dblist=638" target="_blank">WorldCat</a></div> </div>
+</div>
+</div></div></div>
+<div content-id="DSR032C8" xmlns:helper="urn:XsltStringHelper"><div class="ref false"><div role="DSR032C8" class="ref-content ">
+<div class="label">8</div>
+<div class="citation element-citation">
+<div class="person-group">
+<div class="name">
+<div class="surname">Lee</div> <div class="given-names">P.D.</div>
+</div>,  <div class="name">
+<div class="surname">Sladek</div> <div class="given-names">R.</div>
+</div>,  <div class="name">
+<div class="surname">Greenwood</div> <div class="given-names">C.M.</div>
+</div>,  <div class="name">
+<div class="surname">Hudson</div> <div class="given-names">T.J.</div>
+</div>. </div>
+<div class="article-title">Control genes and variability: absence of ubiquitous reference transcripts in diverse mammalian expression studies</div>, <div class="source">Genome Res.</div> , <div class="year">2002</div>, vol. <div class="volume">12</div> (pg. <div class="fpage">292</div>-<div class="lpage">7</div>)<div class="citation-links">
+<div class="google-scholar-ref-link"><a class="openInAnotherWindow" href="https://scholar.google.com/scholar_lookup?title=Control%20genes%20and%20variability%3A%20absence%20of%20ubiquitous%20reference%20transcripts%20in%20diverse%20mammalian%20expression%20studies&amp;author=P.D.%20Lee&amp;author=R.%20Sladek&amp;author=C.M.%20Greenwood&amp;author=T.J.%20Hudson&amp;publication_year=2002&amp;journal=Genome%20Res.&amp;volume=12&amp;pages=292-7" target="_blank">Google Scholar</a></div>
+<div class="crossref-doi js-ref-link"><a class="openInAnotherWindow" href="http://dx.doi.org/10.1101/gr.217802" target="_blank">Crossref</a></div>
+<div class="adsDoiReference hide"><a class="openInAnotherWindow" href="http://adsabs.harvard.edu/cgi-bin/basic_connect?qsearch=10.1101%2Fgr.217802" target="_blank">Search ADS</a></div>
+<div class="xslopenurl" style="display:none"><span class="inst-open-url-holders" data-targetid="10.1101%2Fgr.217802"> </span></div>
+<div class="pub-id"><a href="http://www.ncbi.nlm.nih.gov/pubmed/11827948" class="link link-pub-id openInAnotherWindow" target="_blank">PubMed</a></div>
+<div class="worldcat-reference-ref-link js-worldcat-preview-ref-link" style="display:none"><a class="openInAnotherWindow" href="https://www.worldcat.org/search?q=ti:Control%20genes%20and%20variability%3A%20absence%20of%20ubiquitous%20reference%20transcripts%20in%20diverse%20mammalian%20expression%20studies&amp;qt=advanced&amp;dblist=638" target="_blank">WorldCat</a></div> </div>
+</div>
+</div></div></div>
+<div content-id="DSR032C9" xmlns:helper="urn:XsltStringHelper"><div class="ref false"><div role="DSR032C9" class="ref-content ">
+<div class="label">9</div>
+<div class="citation element-citation">
+<div class="person-group">
+<div class="name">
+<div class="surname">Czechowski</div> <div class="given-names">T.</div>
+</div>,  <div class="name">
+<div class="surname">Stitt</div> <div class="given-names">M.</div>
+</div>,  <div class="name">
+<div class="surname">Altmann</div> <div class="given-names">T.</div>
+</div>,  <div class="name">
+<div class="surname">Udvardi</div> <div class="given-names">M.K.</div>
+</div>,  <div class="name">
+<div class="surname">Scheible</div> <div class="given-names">W.R.</div>
+</div>. </div>
+<div class="article-title">Genome-wide identification and testing of superior reference genes for transcript normalization in <em>Arabidopsis</em>
+</div>, <div class="source">Plant Physiol.</div> , <div class="year">2005</div>, vol. <div class="volume">139</div> (pg. <div class="fpage">5</div>-<div class="lpage">17</div>)<div class="citation-links">
+<div class="google-scholar-ref-link"><a class="openInAnotherWindow" href="https://scholar.google.com/scholar_lookup?title=Genome-wide%20identification%20and%20testing%20of%20superior%20reference%20genes%20for%20transcript%20normalization%20in%20Arabidopsis&amp;author=T.%20Czechowski&amp;author=M.%20Stitt&amp;author=T.%20Altmann&amp;author=M.K.%20Udvardi&amp;author=W.R.%20Scheible&amp;publication_year=2005&amp;journal=Plant%20Physiol.&amp;volume=139&amp;pages=5-17" target="_blank">Google Scholar</a></div>
+<div class="crossref-doi js-ref-link"><a class="openInAnotherWindow" href="http://dx.doi.org/10.1104/pp.105.063743" target="_blank">Crossref</a></div>
+<div class="adsDoiReference hide"><a class="openInAnotherWindow" href="http://adsabs.harvard.edu/cgi-bin/basic_connect?qsearch=10.1104%2Fpp.105.063743" target="_blank">Search ADS</a></div>
+<div class="xslopenurl" style="display:none"><span class="inst-open-url-holders" data-targetid="10.1104%2Fpp.105.063743"> </span></div>
+<div class="pub-id"><a href="http://www.ncbi.nlm.nih.gov/pubmed/16166256" class="link link-pub-id openInAnotherWindow" target="_blank">PubMed</a></div>
+<div class="worldcat-reference-ref-link js-worldcat-preview-ref-link" style="display:none"><a class="openInAnotherWindow" href="https://www.worldcat.org/search?q=ti:Genome-wide%20identification%20and%20testing%20of%20superior%20reference%20genes%20for%20transcript%20normalization%20in%20Arabidopsis&amp;qt=advanced&amp;dblist=638" target="_blank">WorldCat</a></div> </div>
+</div>
+</div></div></div>
+<div content-id="DSR032C10" xmlns:helper="urn:XsltStringHelper"><div class="ref false"><div role="DSR032C10" class="ref-content ">
+<div class="label">10</div>
+<div class="citation element-citation">
+<div class="person-group">
+<div class="name">
+<div class="surname">Rubie</div> <div class="given-names">C.</div>
+</div>,  <div class="name">
+<div class="surname">Kempf</div> <div class="given-names">K.</div>
+</div>,  <div class="name">
+<div class="surname">Hans</div> <div class="given-names">J.</div>
+</div>, et al. </div>
+<div class="article-title">Housekeeping gene variability in normal and cancerous colorectal, pancreatic, esophageal, gastric and hepatic tissues</div>, <div class="source">Mol. Cell. Probes</div> , <div class="year">2005</div>, vol. <div class="volume">19</div> (pg. <div class="fpage">101</div>-<div class="lpage">9</div>)<div class="citation-links">
+<div class="google-scholar-ref-link"><a class="openInAnotherWindow" href="https://scholar.google.com/scholar_lookup?title=Housekeeping%20gene%20variability%20in%20normal%20and%20cancerous%20colorectal%2C%20pancreatic%2C%20esophageal%2C%20gastric%20and%20hepatic%20tissues&amp;author=C.%20Rubie&amp;author=K.%20Kempf&amp;author=J.%20Hans&amp;publication_year=2005&amp;journal=Mol.%20Cell.%20Probes&amp;volume=19&amp;pages=101-9" target="_blank">Google Scholar</a></div>
+<div class="crossref-doi js-ref-link"><a class="openInAnotherWindow" href="http://dx.doi.org/10.1016/j.mcp.2004.10.001" target="_blank">Crossref</a></div>
+<div class="adsDoiReference hide"><a class="openInAnotherWindow" href="http://adsabs.harvard.edu/cgi-bin/basic_connect?qsearch=10.1016%2Fj.mcp.2004.10.001" target="_blank">Search ADS</a></div>
+<div class="xslopenurl" style="display:none"><span class="inst-open-url-holders" data-targetid="10.1016%2Fj.mcp.2004.10.001"> </span></div>
+<div class="pub-id"><a href="http://www.ncbi.nlm.nih.gov/pubmed/15680211" class="link link-pub-id openInAnotherWindow" target="_blank">PubMed</a></div>
+<div class="worldcat-reference-ref-link js-worldcat-preview-ref-link" style="display:none"><a class="openInAnotherWindow" href="https://www.worldcat.org/search?q=ti:Housekeeping%20gene%20variability%20in%20normal%20and%20cancerous%20colorectal%2C%20pancreatic%2C%20esophageal%2C%20gastric%20and%20hepatic%20tissues&amp;qt=advanced&amp;dblist=638" target="_blank">WorldCat</a></div> </div>
+</div>
+</div></div></div>
+<div content-id="DSR032C11" xmlns:helper="urn:XsltStringHelper"><div class="ref false"><div role="DSR032C11" class="ref-content ">
+<div class="label">11</div>
+<div class="citation element-citation">
+<div class="person-group">
+<div class="name">
+<div class="surname">Gutierrez</div> <div class="given-names">L.</div>
+</div>,  <div class="name">
+<div class="surname">Mauriat</div> <div class="given-names">M.</div>
+</div>,  <div class="name">
+<div class="surname">Guenin</div> <div class="given-names">S.</div>
+</div>, et al. </div>
+<div class="article-title">The lack of a systematic validation of reference genes: a serious pitfall undervalued in reverse transcription–polymerase chain reaction (RT–PCR) analysis in plants</div>, <div class="source">Plant Biotechnol. J.</div> , <div class="year">2008</div>, vol. <div class="volume">6</div> (pg. <div class="fpage">609</div>-<div class="lpage">18</div>)<div class="citation-links">
+<div class="google-scholar-ref-link"><a class="openInAnotherWindow" href="https://scholar.google.com/scholar_lookup?title=The%20lack%20of%20a%20systematic%20validation%20of%20reference%20genes%3A%20a%20serious%20pitfall%20undervalued%20in%20reverse%20transcription%E2%80%93polymerase%20chain%20reaction%20(RT%E2%80%93PCR)%20analysis%20in%20plants&amp;author=L.%20Gutierrez&amp;author=M.%20Mauriat&amp;author=S.%20Guenin&amp;publication_year=2008&amp;journal=Plant%20Biotechnol.%20J.&amp;volume=6&amp;pages=609-18" target="_blank">Google Scholar</a></div>
+<div class="crossref-doi js-ref-link"><a class="openInAnotherWindow" href="http://dx.doi.org/10.1111/pbi.2008.6.issue-6" target="_blank">Crossref</a></div>
+<div class="adsDoiReference hide"><a class="openInAnotherWindow" href="http://adsabs.harvard.edu/cgi-bin/basic_connect?qsearch=10.1111%2Fpbi.2008.6.issue-6" target="_blank">Search ADS</a></div>
+<div class="xslopenurl" style="display:none"><span class="inst-open-url-holders" data-targetid="10.1111%2Fpbi.2008.6.issue-6"> </span></div>
+<div class="pub-id"><a href="http://www.ncbi.nlm.nih.gov/pubmed/18433420" class="link link-pub-id openInAnotherWindow" target="_blank">PubMed</a></div>
+<div class="worldcat-reference-ref-link js-worldcat-preview-ref-link" style="display:none"><a class="openInAnotherWindow" href="https://www.worldcat.org/search?q=ti:The%20lack%20of%20a%20systematic%20validation%20of%20reference%20genes%3A%20a%20serious%20pitfall%20undervalued%20in%20reverse%20transcription%E2%80%93polymerase%20chain%20reaction%20(RT%E2%80%93PCR)%20analysis%20in%20plants&amp;qt=advanced&amp;dblist=638" target="_blank">WorldCat</a></div> </div>
+</div>
+</div></div></div>
+<div content-id="DSR032C12" xmlns:helper="urn:XsltStringHelper"><div class="ref false"><div role="DSR032C12" class="ref-content ">
+<div class="label">12</div>
+<div class="citation element-citation">
+<div class="person-group">
+<div class="name">
+<div class="surname">Nicot</div> <div class="given-names">N.</div>
+</div>,  <div class="name">
+<div class="surname">Hausman</div> <div class="given-names">J.F.</div>
+</div>,  <div class="name">
+<div class="surname">Hoffmann</div> <div class="given-names">L.</div>
+</div>,  <div class="name">
+<div class="surname">Evers</div> <div class="given-names">D.</div>
+</div>. </div>
+<div class="article-title">Housekeeping gene selection for real-time RT-PCR normalization in potato during biotic and abiotic stress</div>, <div class="source">J. Exp. Bot.</div> , <div class="year">2005</div>, vol. <div class="volume">56</div> (pg. <div class="fpage">2907</div>-<div class="lpage">14</div>)<div class="citation-links">
+<div class="google-scholar-ref-link"><a class="openInAnotherWindow" href="https://scholar.google.com/scholar_lookup?title=Housekeeping%20gene%20selection%20for%20real-time%20RT-PCR%20normalization%20in%20potato%20during%20biotic%20and%20abiotic%20stress&amp;author=N.%20Nicot&amp;author=J.F.%20Hausman&amp;author=L.%20Hoffmann&amp;author=D.%20Evers&amp;publication_year=2005&amp;journal=J.%20Exp.%20Bot.&amp;volume=56&amp;pages=2907-14" target="_blank">Google Scholar</a></div>
+<div class="crossref-doi js-ref-link"><a class="openInAnotherWindow" href="http://dx.doi.org/10.1093/jxb/eri285" target="_blank">Crossref</a></div>
+<div class="adsDoiReference hide"><a class="openInAnotherWindow" href="http://adsabs.harvard.edu/cgi-bin/basic_connect?qsearch=10.1093%2Fjxb%2Feri285" target="_blank">Search ADS</a></div>
+<div class="xslopenurl" style="display:none"><span class="inst-open-url-holders" data-targetid="10.1093%2Fjxb%2Feri285"> </span></div>
+<div class="pub-id"><a href="http://www.ncbi.nlm.nih.gov/pubmed/16188960" class="link link-pub-id openInAnotherWindow" target="_blank">PubMed</a></div>
+<div class="worldcat-reference-ref-link js-worldcat-preview-ref-link" style="display:none"><a class="openInAnotherWindow" href="https://www.worldcat.org/search?q=ti:Housekeeping%20gene%20selection%20for%20real-time%20RT-PCR%20normalization%20in%20potato%20during%20biotic%20and%20abiotic%20stress&amp;qt=advanced&amp;dblist=638" target="_blank">WorldCat</a></div> </div>
+</div>
+</div></div></div>
+<div content-id="DSR032C13" xmlns:helper="urn:XsltStringHelper"><div class="ref false"><div role="DSR032C13" class="ref-content ">
+<div class="label">13</div>
+<div class="citation element-citation">
+<div class="person-group">
+<div class="name">
+<div class="surname">Jain</div> <div class="given-names">M.</div>
+</div>,  <div class="name">
+<div class="surname">Nijhawan</div> <div class="given-names">A.</div>
+</div>,  <div class="name">
+<div class="surname">Tyagi</div> <div class="given-names">A.K.</div>
+</div>,  <div class="name">
+<div class="surname">Khurana</div> <div class="given-names">J.P.</div>
+</div>. </div>
+<div class="article-title">Validation of housekeeping genes as internal control for studying gene expression in rice by quantitative real-time PCR</div>, <div class="source">Biochem. Biophys. Res. Commun.</div> , <div class="year">2006</div>, vol. <div class="volume">345</div> (pg. <div class="fpage">646</div>-<div class="lpage">51</div>)<div class="citation-links">
+<div class="google-scholar-ref-link"><a class="openInAnotherWindow" href="https://scholar.google.com/scholar_lookup?title=Validation%20of%20housekeeping%20genes%20as%20internal%20control%20for%20studying%20gene%20expression%20in%20rice%20by%20quantitative%20real-time%20PCR&amp;author=M.%20Jain&amp;author=A.%20Nijhawan&amp;author=A.K.%20Tyagi&amp;author=J.P.%20Khurana&amp;publication_year=2006&amp;journal=Biochem.%20Biophys.%20Res.%20Commun.&amp;volume=345&amp;pages=646-51" target="_blank">Google Scholar</a></div>
+<div class="crossref-doi js-ref-link"><a class="openInAnotherWindow" href="http://dx.doi.org/10.1016/j.bbrc.2006.04.140" target="_blank">Crossref</a></div>
+<div class="adsDoiReference hide"><a class="openInAnotherWindow" href="http://adsabs.harvard.edu/cgi-bin/basic_connect?qsearch=10.1016%2Fj.bbrc.2006.04.140" target="_blank">Search ADS</a></div>
+<div class="xslopenurl" style="display:none"><span class="inst-open-url-holders" data-targetid="10.1016%2Fj.bbrc.2006.04.140"> </span></div>
+<div class="pub-id"><a href="http://www.ncbi.nlm.nih.gov/pubmed/16690022" class="link link-pub-id openInAnotherWindow" target="_blank">PubMed</a></div>
+<div class="worldcat-reference-ref-link js-worldcat-preview-ref-link" style="display:none"><a class="openInAnotherWindow" href="https://www.worldcat.org/search?q=ti:Validation%20of%20housekeeping%20genes%20as%20internal%20control%20for%20studying%20gene%20expression%20in%20rice%20by%20quantitative%20real-time%20PCR&amp;qt=advanced&amp;dblist=638" target="_blank">WorldCat</a></div> </div>
+</div>
+</div></div></div>
+<div content-id="DSR032C14" xmlns:helper="urn:XsltStringHelper"><div class="ref false"><div role="DSR032C14" class="ref-content ">
+<div class="label">14</div>
+<div class="citation element-citation">
+<div class="person-group">
+<div class="name">
+<div class="surname">Remans</div> <div class="given-names">T.</div>
+</div>,  <div class="name">
+<div class="surname">Smeets</div> <div class="given-names">K.</div>
+</div>,  <div class="name">
+<div class="surname">Opdenakker</div> <div class="given-names">K.</div>
+</div>,  <div class="name">
+<div class="surname">Mathijsen</div> <div class="given-names">D.</div>
+</div>,  <div class="name">
+<div class="surname">Vangronsveld</div> <div class="given-names">J.</div>
+</div>,  <div class="name">
+<div class="surname">Cuypers</div> <div class="given-names">A.</div>
+</div>. </div>
+<div class="article-title">Normalisation of real-time RT–PCR gene expression measurements in <em>Arabidopsis thaliana</em> exposed to increased metal concentrations</div>, <div class="source">Planta</div> , <div class="year">2008</div>, vol. <div class="volume">227</div> (pg. <div class="fpage">1343</div>-<div class="lpage">9</div>)<div class="citation-links">
+<div class="google-scholar-ref-link"><a class="openInAnotherWindow" href="https://scholar.google.com/scholar_lookup?title=Normalisation%20of%20real-time%20RT%E2%80%93PCR%20gene%20expression%20measurements%20in%20Arabidopsis%20thaliana%20exposed%20to%20increased%20metal%20concentrations&amp;author=T.%20Remans&amp;author=K.%20Smeets&amp;author=K.%20Opdenakker&amp;author=D.%20Mathijsen&amp;author=J.%20Vangronsveld&amp;author=A.%20Cuypers&amp;publication_year=2008&amp;journal=Planta&amp;volume=227&amp;pages=1343-9" target="_blank">Google Scholar</a></div>
+<div class="crossref-doi js-ref-link"><a class="openInAnotherWindow" href="http://dx.doi.org/10.1007/s00425-008-0706-4" target="_blank">Crossref</a></div>
+<div class="adsDoiReference hide"><a class="openInAnotherWindow" href="http://adsabs.harvard.edu/cgi-bin/basic_connect?qsearch=10.1007%2Fs00425-008-0706-4" target="_blank">Search ADS</a></div>
+<div class="xslopenurl" style="display:none"><span class="inst-open-url-holders" data-targetid="10.1007%2Fs00425-008-0706-4"> </span></div>
+<div class="pub-id"><a href="http://www.ncbi.nlm.nih.gov/pubmed/18273637" class="link link-pub-id openInAnotherWindow" target="_blank">PubMed</a></div>
+<div class="worldcat-reference-ref-link js-worldcat-preview-ref-link" style="display:none"><a class="openInAnotherWindow" href="https://www.worldcat.org/search?q=ti:Normalisation%20of%20real-time%20RT%E2%80%93PCR%20gene%20expression%20measurements%20in%20Arabidopsis%20thaliana%20exposed%20to%20increased%20metal%20concentrations&amp;qt=advanced&amp;dblist=638" target="_blank">WorldCat</a></div> </div>
+</div>
+</div></div></div>
+<div content-id="DSR032C15" xmlns:helper="urn:XsltStringHelper"><div class="ref false"><div role="DSR032C15" class="ref-content ">
+<div class="label">15</div>
+<div class="citation element-citation">
+<div class="person-group">
+<div class="name">
+<div class="surname">Garg</div> <div class="given-names">R.</div>
+</div>,  <div class="name">
+<div class="surname">Sahoo</div> <div class="given-names">A.</div>
+</div>,  <div class="name">
+<div class="surname">Tyagi</div> <div class="given-names">A.K.</div>
+</div>,  <div class="name">
+<div class="surname">Jain</div> <div class="given-names">M.</div>
+</div>. </div>
+<div class="article-title">Validation of internal control genes for quantitative gene expression studies in chickpea (<em>Cicer arietinum</em> L.)</div>, <div class="source">Biochem. Biophys. Res. Commun.</div> , <div class="year">2010</div>, vol. <div class="volume">396</div> (pg. <div class="fpage">283</div>-<div class="lpage">8</div>)<div class="citation-links">
+<div class="google-scholar-ref-link"><a class="openInAnotherWindow" href="https://scholar.google.com/scholar_lookup?title=Validation%20of%20internal%20control%20genes%20for%20quantitative%20gene%20expression%20studies%20in%20chickpea%20(Cicer%20arietinum%20L.)&amp;author=R.%20Garg&amp;author=A.%20Sahoo&amp;author=A.K.%20Tyagi&amp;author=M.%20Jain&amp;publication_year=2010&amp;journal=Biochem.%20Biophys.%20Res.%20Commun.&amp;volume=396&amp;pages=283-8" target="_blank">Google Scholar</a></div>
+<div class="crossref-doi js-ref-link"><a class="openInAnotherWindow" href="http://dx.doi.org/10.1016/j.bbrc.2010.04.079" target="_blank">Crossref</a></div>
+<div class="adsDoiReference hide"><a class="openInAnotherWindow" href="http://adsabs.harvard.edu/cgi-bin/basic_connect?qsearch=10.1016%2Fj.bbrc.2010.04.079" target="_blank">Search ADS</a></div>
+<div class="xslopenurl" style="display:none"><span class="inst-open-url-holders" data-targetid="10.1016%2Fj.bbrc.2010.04.079"> </span></div>
+<div class="pub-id"><a href="http://www.ncbi.nlm.nih.gov/pubmed/20399753" class="link link-pub-id openInAnotherWindow" target="_blank">PubMed</a></div>
+<div class="worldcat-reference-ref-link js-worldcat-preview-ref-link" style="display:none"><a class="openInAnotherWindow" href="https://www.worldcat.org/search?q=ti:Validation%20of%20internal%20control%20genes%20for%20quantitative%20gene%20expression%20studies%20in%20chickpea%20(Cicer%20arietinum%20L.)&amp;qt=advanced&amp;dblist=638" target="_blank">WorldCat</a></div> </div>
+</div>
+</div></div></div>
+<div content-id="DSR032C16" xmlns:helper="urn:XsltStringHelper"><div class="ref false"><div role="DSR032C16" class="ref-content ">
+<div class="label">16</div>
+<div class="citation element-citation">
+<div class="person-group">
+<div class="name">
+<div class="surname">Libault</div> <div class="given-names">M.</div>
+</div>,  <div class="name">
+<div class="surname">Thibivilliers</div> <div class="given-names">S.</div>
+</div>,  <div class="name">
+<div class="surname">Bilgin</div> <div class="given-names">D.D.</div>
+</div>, et al. </div>
+<div class="article-title">Identification of four soybean reference genes for gene expression normalization</div>, <div class="source">Plant Genome</div> , <div class="year">2008</div>, vol. <div class="volume">1</div> (pg. <div class="fpage">44</div>-<div class="lpage">54</div>)<div class="citation-links">
+<div class="google-scholar-ref-link"><a class="openInAnotherWindow" href="https://scholar.google.com/scholar_lookup?title=Identification%20of%20four%20soybean%20reference%20genes%20for%20gene%20expression%20normalization&amp;author=M.%20Libault&amp;author=S.%20Thibivilliers&amp;author=D.D.%20Bilgin&amp;publication_year=2008&amp;journal=Plant%20Genome&amp;volume=1&amp;pages=44-54" target="_blank">Google Scholar</a></div>
+<div class="crossref-doi js-ref-link"><a class="openInAnotherWindow" href="http://dx.doi.org/10.3835/plantgenome2008.02.0091" target="_blank">Crossref</a></div>
+<div class="adsDoiReference hide"><a class="openInAnotherWindow" href="http://adsabs.harvard.edu/cgi-bin/basic_connect?qsearch=10.3835%2Fplantgenome2008.02.0091" target="_blank">Search ADS</a></div>
+<div class="xslopenurl" style="display:none"><span class="inst-open-url-holders" data-targetid="10.3835%2Fplantgenome2008.02.0091"> </span></div>
+<div class="worldcat-reference-ref-link js-worldcat-preview-ref-link" style="display:none"><a class="openInAnotherWindow" href="https://www.worldcat.org/search?q=ti:Identification%20of%20four%20soybean%20reference%20genes%20for%20gene%20expression%20normalization&amp;qt=advanced&amp;dblist=638" target="_blank">WorldCat</a></div> </div>
+</div>
+</div></div></div>
+<div content-id="DSR032C17" xmlns:helper="urn:XsltStringHelper"><div class="ref false"><div role="DSR032C17" class="ref-content ">
+<div class="label">17</div>
+<div class="citation element-citation">
+<div class="person-group">
+<div class="name">
+<div class="surname">Jain</div> <div class="given-names">M.</div>
+</div>. </div>
+<div class="article-title">Genome-wide identification of novel internal control genes for normalization of gene expression during various stages of development in rice</div>, <div class="source">Plant Sci.</div> , <div class="year">2009</div>, vol. <div class="volume">176</div> (pg. <div class="fpage">702</div>-<div class="lpage">6</div>)<div class="citation-links">
+<div class="google-scholar-ref-link"><a class="openInAnotherWindow" href="https://scholar.google.com/scholar_lookup?title=Genome-wide%20identification%20of%20novel%20internal%20control%20genes%20for%20normalization%20of%20gene%20expression%20during%20various%20stages%20of%20development%20in%20rice&amp;author=M.%20Jain&amp;publication_year=2009&amp;journal=Plant%20Sci.&amp;volume=176&amp;pages=702-6" target="_blank">Google Scholar</a></div>
+<div class="crossref-doi js-ref-link"><a class="openInAnotherWindow" href="http://dx.doi.org/10.1016/j.plantsci.2009.02.001" target="_blank">Crossref</a></div>
+<div class="adsDoiReference hide"><a class="openInAnotherWindow" href="http://adsabs.harvard.edu/cgi-bin/basic_connect?qsearch=10.1016%2Fj.plantsci.2009.02.001" target="_blank">Search ADS</a></div>
+<div class="xslopenurl" style="display:none"><span class="inst-open-url-holders" data-targetid="10.1016%2Fj.plantsci.2009.02.001"> </span></div>
+<div class="worldcat-reference-ref-link js-worldcat-preview-ref-link" style="display:none"><a class="openInAnotherWindow" href="https://www.worldcat.org/search?q=ti:Genome-wide%20identification%20of%20novel%20internal%20control%20genes%20for%20normalization%20of%20gene%20expression%20during%20various%20stages%20of%20development%20in%20rice&amp;qt=advanced&amp;dblist=638" target="_blank">WorldCat</a></div> </div>
+</div>
+</div></div></div>
+<div content-id="DSR032C18" xmlns:helper="urn:XsltStringHelper"><div class="ref false"><div role="DSR032C18" class="ref-content ">
+<div class="label">18</div>
+<div class="citation element-citation">
+<div class="person-group">
+<div class="name">
+<div class="surname">Kwon</div> <div class="given-names">M.J.</div>
+</div>,  <div class="name">
+<div class="surname">Oh</div> <div class="given-names">E.</div>
+</div>,  <div class="name">
+<div class="surname">Lee</div> <div class="given-names">S.</div>
+</div>, et al. </div>
+<div class="article-title">Identification of novel reference genes using multiplatform expression data and their validation for quantitative gene expression analysis</div>, <div class="source">PLoS One</div> , <div class="year">2009</div>, vol. <div class="volume">4</div> pg. <div class="fpage">e6162</div> <div class="citation-links">
+<div class="google-scholar-ref-link"><a class="openInAnotherWindow" href="https://scholar.google.com/scholar_lookup?title=Identification%20of%20novel%20reference%20genes%20using%20multiplatform%20expression%20data%20and%20their%20validation%20for%20quantitative%20gene%20expression%20analysis&amp;author=M.J.%20Kwon&amp;author=E.%20Oh&amp;author=S.%20Lee&amp;publication_year=2009&amp;journal=PLoS%20One&amp;volume=4&amp;pages=e6162" target="_blank">Google Scholar</a></div>
+<div class="crossref-doi js-ref-link"><a class="openInAnotherWindow" href="http://dx.doi.org/10.1371/journal.pone.0006162" target="_blank">Crossref</a></div>
+<div class="adsDoiReference hide"><a class="openInAnotherWindow" href="http://adsabs.harvard.edu/cgi-bin/basic_connect?qsearch=10.1371%2Fjournal.pone.0006162" target="_blank">Search ADS</a></div>
+<div class="xslopenurl" style="display:none"><span class="inst-open-url-holders" data-targetid="10.1371%2Fjournal.pone.0006162"> </span></div>
+<div class="pub-id"><a href="http://www.ncbi.nlm.nih.gov/pubmed/19584937" class="link link-pub-id openInAnotherWindow" target="_blank">PubMed</a></div>
+<div class="worldcat-reference-ref-link js-worldcat-preview-ref-link" style="display:none"><a class="openInAnotherWindow" href="https://www.worldcat.org/search?q=ti:Identification%20of%20novel%20reference%20genes%20using%20multiplatform%20expression%20data%20and%20their%20validation%20for%20quantitative%20gene%20expression%20analysis&amp;qt=advanced&amp;dblist=638" target="_blank">WorldCat</a></div> </div>
+</div>
+</div></div></div>
+<div content-id="DSR032C19" xmlns:helper="urn:XsltStringHelper"><div class="ref false"><div role="DSR032C19" class="ref-content ">
+<div class="label">19</div>
+<div class="citation element-citation">
+<div class="person-group">
+<div class="name">
+<div class="surname">Narsai</div> <div class="given-names">R.</div>
+</div>,  <div class="name">
+<div class="surname">Ivanova</div> <div class="given-names">A.</div>
+</div>,  <div class="name">
+<div class="surname">Ng</div> <div class="given-names">S.</div>
+</div>,  <div class="name">
+<div class="surname">Whelan</div> <div class="given-names">J.</div>
+</div>. </div>
+<div class="article-title">Defining reference genes in <em>Oryza sativa</em> using organ, development, biotic and abiotic transcriptome datasets</div>, <div class="source">BMC Plant Biol.</div> , <div class="year">2010</div>, vol. <div class="volume">10</div> pg. <div class="fpage">56</div> <div class="citation-links">
+<div class="google-scholar-ref-link"><a class="openInAnotherWindow" href="https://scholar.google.com/scholar_lookup?title=Defining%20reference%20genes%20in%20Oryza%20sativa%20using%20organ%2C%20development%2C%20biotic%20and%20abiotic%20transcriptome%20datasets&amp;author=R.%20Narsai&amp;author=A.%20Ivanova&amp;author=S.%20Ng&amp;author=J.%20Whelan&amp;publication_year=2010&amp;journal=BMC%20Plant%20Biol.&amp;volume=10&amp;pages=56" target="_blank">Google Scholar</a></div>
+<div class="crossref-doi js-ref-link"><a class="openInAnotherWindow" href="http://dx.doi.org/10.1186/1471-2229-10-56" target="_blank">Crossref</a></div>
+<div class="adsDoiReference hide"><a class="openInAnotherWindow" href="http://adsabs.harvard.edu/cgi-bin/basic_connect?qsearch=10.1186%2F1471-2229-10-56" target="_blank">Search ADS</a></div>
+<div class="xslopenurl" style="display:none"><span class="inst-open-url-holders" data-targetid="10.1186%2F1471-2229-10-56"> </span></div>
+<div class="pub-id"><a href="http://www.ncbi.nlm.nih.gov/pubmed/20353606" class="link link-pub-id openInAnotherWindow" target="_blank">PubMed</a></div>
+<div class="worldcat-reference-ref-link js-worldcat-preview-ref-link" style="display:none"><a class="openInAnotherWindow" href="https://www.worldcat.org/search?q=ti:Defining%20reference%20genes%20in%20Oryza%20sativa%20using%20organ%2C%20development%2C%20biotic%20and%20abiotic%20transcriptome%20datasets&amp;qt=advanced&amp;dblist=638" target="_blank">WorldCat</a></div> </div>
+</div>
+</div></div></div>
+<div content-id="DSR032C20" xmlns:helper="urn:XsltStringHelper"><div class="ref false"><div role="DSR032C20" class="ref-content ">
+<div class="label">20</div>
+<div class="citation element-citation">
+<div class="person-group">
+<div class="name">
+<div class="surname">Vandesompele</div> <div class="given-names">J.</div>
+</div>,  <div class="name">
+<div class="surname">De Preter</div> <div class="given-names">K.</div>
+</div>,  <div class="name">
+<div class="surname">Pattyn</div> <div class="given-names">F.</div>
+</div>, et al. </div>
+<div class="article-title">Accurate normalization of real-time quantitative RT-PCR data by geometric averaging of multiple internal control genes</div>, <div class="source">Genome Biol.</div> , <div class="year">2002</div>, vol. <div class="volume">3</div>  <div class="comment">RESEARCH0034</div>
+<div class="citation-links">
+<div class="xslopenurl" style="display:none"><span class="js-inst-open-url-holders-nodoi"><a class="openInAnotherWindow js-open-url-link" target="_blank" data-href-template="{targetURL}?sid=oup:orr&amp;genre=article&amp;atitle=Accurate%20normalization%20of%20real-time%20quantitative%20RT-PCR%20data%20by%20geometric%20averaging%20of%20multiple%20internal%20control%20genes&amp;aulast=Vandesompele&amp;date=2002&amp;volume=3" href="#"></a></span></div>
+<div class="worldcat-reference-ref-link js-worldcat-preview-ref-link" style="display:none"><a class="openInAnotherWindow" href="https://www.worldcat.org/search?q=ti:Accurate%20normalization%20of%20real-time%20quantitative%20RT-PCR%20data%20by%20geometric%20averaging%20of%20multiple%20internal%20control%20genes&amp;qt=advanced&amp;dblist=638" target="_blank">WorldCat</a></div> </div>
+</div>
+</div></div></div>
+<div content-id="DSR032C21" xmlns:helper="urn:XsltStringHelper"><div class="ref false"><div role="DSR032C21" class="ref-content ">
+<div class="label">21</div>
+<div class="citation element-citation">
+<div class="person-group">
+<div class="name">
+<div class="surname">Wise</div> <div class="given-names">R.P.</div>
+</div>,  <div class="name">
+<div class="surname">Caldo</div> <div class="given-names">R.A.</div>
+</div>,  <div class="name">
+<div class="surname">Hong</div> <div class="given-names">L.</div>
+</div>,  <div class="name">
+<div class="surname">Shen</div> <div class="given-names">L.</div>
+</div>,  <div class="name">
+<div class="surname">Cannon</div> <div class="given-names">E.</div>
+</div>,  <div class="name">
+<div class="surname">Dickerson</div> <div class="given-names">J.A.</div>
+</div>. </div>
+<div class="article-title">BarleyBase/PLEXdb: a unified expression profiling database for plants and plant pathogens</div>, <div class="source">Methods Mol. Biol.</div> , <div class="year">2007</div>, vol. <div class="volume">406</div> (pg. <div class="fpage">347</div>-<div class="lpage">63</div>)<div class="citation-links">
+<div class="google-scholar-ref-link"><a class="openInAnotherWindow" href="https://scholar.google.com/scholar_lookup?title=BarleyBase%2FPLEXdb%3A%20a%20unified%20expression%20profiling%20database%20for%20plants%20and%20plant%20pathogens&amp;author=R.P.%20Wise&amp;author=R.A.%20Caldo&amp;author=L.%20Hong&amp;author=L.%20Shen&amp;author=E.%20Cannon&amp;author=J.A.%20Dickerson&amp;publication_year=2007&amp;journal=Methods%20Mol.%20Biol.&amp;volume=406&amp;pages=347-63" target="_blank">Google Scholar</a></div>
+<div class="pub-id"><a href="http://www.ncbi.nlm.nih.gov/pubmed/18287702" class="link link-pub-id openInAnotherWindow" target="_blank">PubMed</a></div>
+<div class="xslopenurl" style="display:none"><span class="js-inst-open-url-holders-nodoi"><a class="openInAnotherWindow js-open-url-link" target="_blank" data-href-template="{targetURL}?sid=oup:orr&amp;genre=article&amp;atitle=BarleyBase%2FPLEXdb%3A%20a%20unified%20expression%20profiling%20database%20for%20plants%20and%20plant%20pathogens&amp;aulast=Wise&amp;date=2007&amp;spage=347&amp;epage=63&amp;volume=406" href="#"></a></span></div>
+<div class="worldcat-reference-ref-link js-worldcat-preview-ref-link" style="display:none"><a class="openInAnotherWindow" href="https://www.worldcat.org/search?q=ti:BarleyBase%2FPLEXdb%3A%20a%20unified%20expression%20profiling%20database%20for%20plants%20and%20plant%20pathogens&amp;qt=advanced&amp;dblist=638" target="_blank">WorldCat</a></div> </div>
+</div>
+</div></div></div>
+<div content-id="DSR032C22" xmlns:helper="urn:XsltStringHelper"><div class="ref false"><div role="DSR032C22" class="ref-content ">
+<div class="label">22</div>
+<div class="citation element-citation">
+<div class="person-group">
+<div class="name">
+<div class="surname">Bullard</div> <div class="given-names">J.H.</div>
+</div>,  <div class="name">
+<div class="surname">Purdom</div> <div class="given-names">E.</div>
+</div>,  <div class="name">
+<div class="surname">Hansen</div> <div class="given-names">K.D.</div>
+</div>,  <div class="name">
+<div class="surname">Dudoit</div> <div class="given-names">S.</div>
+</div>. </div>
+<div class="article-title">Evaluation of statistical methods for normalization and differential expression in mRNA-Seq experiments</div>, <div class="source">BMC Bioinformatics</div> , <div class="year">2010</div>, vol. <div class="volume">11</div> pg. <div class="fpage">94</div> <div class="citation-links">
+<div class="google-scholar-ref-link"><a class="openInAnotherWindow" href="https://scholar.google.com/scholar_lookup?title=Evaluation%20of%20statistical%20methods%20for%20normalization%20and%20differential%20expression%20in%20mRNA-Seq%20experiments&amp;author=J.H.%20Bullard&amp;author=E.%20Purdom&amp;author=K.D.%20Hansen&amp;author=S.%20Dudoit&amp;publication_year=2010&amp;journal=BMC%20Bioinformatics&amp;volume=11&amp;pages=94" target="_blank">Google Scholar</a></div>
+<div class="crossref-doi js-ref-link"><a class="openInAnotherWindow" href="http://dx.doi.org/10.1186/1471-2105-11-94" target="_blank">Crossref</a></div>
+<div class="adsDoiReference hide"><a class="openInAnotherWindow" href="http://adsabs.harvard.edu/cgi-bin/basic_connect?qsearch=10.1186%2F1471-2105-11-94" target="_blank">Search ADS</a></div>
+<div class="xslopenurl" style="display:none"><span class="inst-open-url-holders" data-targetid="10.1186%2F1471-2105-11-94"> </span></div>
+<div class="pub-id"><a href="http://www.ncbi.nlm.nih.gov/pubmed/20167110" class="link link-pub-id openInAnotherWindow" target="_blank">PubMed</a></div>
+<div class="worldcat-reference-ref-link js-worldcat-preview-ref-link" style="display:none"><a class="openInAnotherWindow" href="https://www.worldcat.org/search?q=ti:Evaluation%20of%20statistical%20methods%20for%20normalization%20and%20differential%20expression%20in%20mRNA-Seq%20experiments&amp;qt=advanced&amp;dblist=638" target="_blank">WorldCat</a></div> </div>
+</div>
+</div></div></div>
+<div content-id="DSR032C23" xmlns:helper="urn:XsltStringHelper"><div class="ref false"><div role="DSR032C23" class="ref-content ">
+<div class="label">23</div>
+<div class="citation element-citation">
+<div class="person-group">
+<div class="name">
+<div class="surname">Coker</div> <div class="given-names">J.S.</div>
+</div>,  <div class="name">
+<div class="surname">Davies</div> <div class="given-names">E.</div>
+</div>. </div>
+<div class="article-title">Selection of candidate housekeeping controls in tomato plants using EST data</div>, <div class="source">Biotechniques</div> , <div class="year">2003</div>, vol. <div class="volume">35</div> (pg. <div class="fpage">740</div>-<div class="lpage">8</div>)<div class="citation-links">
+<div class="google-scholar-ref-link"><a class="openInAnotherWindow" href="https://scholar.google.com/scholar_lookup?title=Selection%20of%20candidate%20housekeeping%20controls%20in%20tomato%20plants%20using%20EST%20data&amp;author=J.S.%20Coker&amp;author=E.%20Davies&amp;publication_year=2003&amp;journal=Biotechniques&amp;volume=35&amp;pages=740-8" target="_blank">Google Scholar</a></div>
+<div class="pub-id"><a href="http://www.ncbi.nlm.nih.gov/pubmed/14579739" class="link link-pub-id openInAnotherWindow" target="_blank">PubMed</a></div>
+<div class="xslopenurl" style="display:none"><span class="js-inst-open-url-holders-nodoi"><a class="openInAnotherWindow js-open-url-link" target="_blank" data-href-template="{targetURL}?sid=oup:orr&amp;genre=article&amp;atitle=Selection%20of%20candidate%20housekeeping%20controls%20in%20tomato%20plants%20using%20EST%20data&amp;aulast=Coker&amp;date=2003&amp;spage=740&amp;epage=8&amp;volume=35" href="#"></a></span></div>
+<div class="worldcat-reference-ref-link js-worldcat-preview-ref-link" style="display:none"><a class="openInAnotherWindow" href="https://www.worldcat.org/search?q=ti:Selection%20of%20candidate%20housekeeping%20controls%20in%20tomato%20plants%20using%20EST%20data&amp;qt=advanced&amp;dblist=638" target="_blank">WorldCat</a></div> </div>
+</div>
+</div></div></div>
+<div content-id="DSR032C24" xmlns:helper="urn:XsltStringHelper"><div class="ref false"><div role="DSR032C24" class="ref-content ">
+<div class="label">24</div>
+<div class="citation element-citation">
+<div class="person-group">
+<div class="name">
+<div class="surname">Chari</div> <div class="given-names">R.</div>
+</div>,  <div class="name">
+<div class="surname">Lonergan</div> <div class="given-names">K.M.</div>
+</div>,  <div class="name">
+<div class="surname">Pikor</div> <div class="given-names">L.A.</div>
+</div>, et al. </div>
+<div class="article-title">A sequence-based approach to identify reference genes for gene expression analysis</div>, <div class="source">BMC Med. Genomics</div> , <div class="year">2010</div>, vol. <div class="volume">3</div> pg. <div class="fpage">32</div> <div class="citation-links">
+<div class="google-scholar-ref-link"><a class="openInAnotherWindow" href="https://scholar.google.com/scholar_lookup?title=A%20sequence-based%20approach%20to%20identify%20reference%20genes%20for%20gene%20expression%20analysis&amp;author=R.%20Chari&amp;author=K.M.%20Lonergan&amp;author=L.A.%20Pikor&amp;publication_year=2010&amp;journal=BMC%20Med.%20Genomics&amp;volume=3&amp;pages=32" target="_blank">Google Scholar</a></div>
+<div class="crossref-doi js-ref-link"><a class="openInAnotherWindow" href="http://dx.doi.org/10.1186/1755-8794-3-32" target="_blank">Crossref</a></div>
+<div class="adsDoiReference hide"><a class="openInAnotherWindow" href="http://adsabs.harvard.edu/cgi-bin/basic_connect?qsearch=10.1186%2F1755-8794-3-32" target="_blank">Search ADS</a></div>
+<div class="xslopenurl" style="display:none"><span class="inst-open-url-holders" data-targetid="10.1186%2F1755-8794-3-32"> </span></div>
+<div class="pub-id"><a href="http://www.ncbi.nlm.nih.gov/pubmed/20682026" class="link link-pub-id openInAnotherWindow" target="_blank">PubMed</a></div>
+<div class="worldcat-reference-ref-link js-worldcat-preview-ref-link" style="display:none"><a class="openInAnotherWindow" href="https://www.worldcat.org/search?q=ti:A%20sequence-based%20approach%20to%20identify%20reference%20genes%20for%20gene%20expression%20analysis&amp;qt=advanced&amp;dblist=638" target="_blank">WorldCat</a></div> </div>
+</div>
+</div></div></div>
+</div>        <!-- /foreach -->
+
+
+
+        <div class="article-metadata-standalone-panel clearfix"></div>
+
+        
+                    <h2 class="authorNotes-section-title" id="authorNotesSectionTitle" scrollto-destination="authorNotesSectionTitle">Author notes</h2>
+<div content-id=""><div class="fn"><div class="footnote-content">Edited by Kazuhiro Sato</div></div></div>
+<div class="copyright copyright-statement">© The Author 2011. Published by Oxford University Press on behalf of Kazusa DNA Research Institute.</div>
+<div class="license"><div class="license-p">This is an Open Access article distributed under the terms of the Creative Commons Attribution Non-Commercial License (http://creativecommons.org/licenses/by-nc/3.0), which permits unrestricted non-commercial use, distribution, and reproduction in any medium, provided the original work is properly cited.</div></div>
+<!-- /foreach -->
+
+        <span id="UserHasAccess" data-userhasaccess="True"></span>
+
+    </div>
+<!-- /.widget-items -->
+</div>
+<!-- /.module-widget -->
+
+ 
+    </div>
+    <div class="widget widget-SolrResourceMetadata widget-instance-OUP_Article_ResourceMetadata_Widget">
+        
+    <div class="article-metadata-panel solr-resource-metadata">
+                <div class="article-metadata-tocSections">
+                    <div class="article-metadata-tocSections-title">Issue Section:</div>
+                        <a href="/dnaresearch/search-results?f_TocHeadingTitle=Full%20Papers">Full Papers</a>
+                </div>
+
+    </div>
+
+ 
+    </div>
+    <div class="widget widget-EditorInformation widget-instance-OUP_Article_EditorInformation_Widget">
+        
+ 
+    </div>
+    <div class="widget widget-ArticleOpenScienceBadges widget-instance-OUP_Article_OpenScienceBadge_Widget">
+        
+ 
+    </div>
+
+                <div id="ContentTabFilteredView"></div>
+                <div class="downloadImagesppt js-download-images-ppt st-download-images-ppt">
+                    <a id="lnkDownloadAllImages" class="js-download-all-images-link" href="//oup.silverchair-cdn.com/DownloadFile/DownloadImage.aspx?image=&amp;PPTtype=SlideSet&amp;ar=477571&amp;xsltPath=~/UI/app/XSLT&amp;siteId=5275">Download all figures</a>
+                </div>
+    <div class="widget widget-ArticleDataSupplements widget-instance-OUP_Data_Supplements_Tab">
+            <a name="SupplementalTab" id="SupplementalTab"></a>
+        <li class="section-jump-link head-1 dataSupplements-jumplink">
+            <div class="section-jump-link__link-wrap">
+                <a class="jumplink js-jumplink scrollTo" href="#supplementary-data">Supplementary data</a>
+            </div>
+        </li>
+        <h2 scrollto-destination="supplementary-data" id="supplementary-data" class="section-title">Supplementary data</h2>
+        <div class="dataSuppLink">
+<a href="https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/dnaresearch/18/6/10.1093/dnares/dsr032/2/dsr032-dsr032supp_table2.xls?Expires=1576717000&amp;Signature=RwyKsfnY4xpLNjVGKIGctlLm0OjYt0JBxCX9bq1E2uxGZXhNrVH~2BXUsJCfjNrmnhOSkySvkFYP2QYNKZoLByt5xzvfqgL~0MRgZOaJaZrqH3L5AtBgAhOzwRQ8GnJOzzZCpWdtZG40Uf09iC~UFYRD~lXdBsjIUqgEzTc5PLNwJUXW2U61-2zCoQ56UnweI-MGdMT~paYd2C47Jh~3HJigZjCyIlXOD0XMC5TT8TOpKnRBk4RF8BSNwcKmRvMFOMGrkmKGzR4hOrucCueVK1qlG-zZEu~J8g62G-wd7ZHGtQRMH-89OJ9JRBkkGvyepaUtpbRllGWEZMME1PfJ~A__&amp;Key-Pair-Id=APKAIE5G5CRDK6RD3PGA">AddSuppFiles-4</a> - xls file</div>
+        <div class="dataSuppLink">
+<a href="https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/dnaresearch/18/6/10.1093/dnares/dsr032/2/dsr032-dsr032supp_table1.doc?Expires=1576717000&amp;Signature=H8XWNH7Z57T77-4u7SepRRe-EQTBW-Z6YO-JWOoIgvyUagocCL-DVIPbkFI5LTgGzguux8LlbkBvRsYvOsG9fgNJr3qplT7ugQq18AGQxN2PRjcQ-rPLa6VcWk66MGhT-keK5~KTPrHpSyCMgYtLQXLyJ~aWCU-pnLOy8IDN7TYT8wf7fzTzysT7fPq86IFIDwi4oxRQlpGGT-pE5u~6MVjSOu9HYN6jLcERN9yhjeTVOEzyMkrhnkOwgNQfrHfmTX7DBnj7-ZyfAksXeZL6u-G~EKKl0by5ZQRAuMMyXP3p-CtF3n7REsqDPjZJVPY01c7RWeakB8ZwHk5rCbW1rA__&amp;Key-Pair-Id=APKAIE5G5CRDK6RD3PGA">AddSuppFiles-3</a> - doc file</div>
+        <div class="dataSuppLink">
+<a href="https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/dnaresearch/18/6/10.1093/dnares/dsr032/2/dsr032-dsr032supp_fig2.ppt?Expires=1576717000&amp;Signature=oG2ZtXtMGlA2mCE8tIBfQ7vzRXGSo4fOMmp5KQb0gTtK78zZlpKyr1XfyD97bEqzemV6YvMBZuseVeAmwhmo-sk9WqfUqB3kD~QkDUJ7xPwu0RzjUroMd1F4pEx2Qi2aZftCIo-apPJTi0~OZY-21Y9-IMa-gqRGFDxK9tjP9vOWvtEtZ--zLjSayOUQruRxj1fj2Sz2sR99J-4KkY3Y6lZYvMD7Kosoo7funXRv583pzYn04uomPg1uc0WDM9xLaRQZnoPOqHWLpz~oxnt3K53wjdwf8pILyzKSWNSy0bF7rn7DZRogND7WhSe5-~3dsHlCxXj-B0LuI7QXwNN-EQ__&amp;Key-Pair-Id=APKAIE5G5CRDK6RD3PGA">AddSuppFiles-2</a> - ppt file</div>
+        <div class="dataSuppLink">
+<a href="https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/dnaresearch/18/6/10.1093/dnares/dsr032/2/dsr032-dsr032supp_fig1.ppt?Expires=1576717000&amp;Signature=nj9CwrJqD~xoQT1kqib1gZNjb-QaC85OGAmG3wi6ivwmUhDzBfB5oAzg-~d66kOv25WzZEOgctJUfDG8PnJAKddvAeCE1bRx5615idm7ZSXXwRCYFfcD5FWCGwFDWE91vD7R7JiDALmG4qOQlUhZl4umDBSxWUZtvZit0N1e3kOC3-0GrD2YX9fjap0p~Csx90HMyRZgzrfmNQcuFYIjHw4Eour8-bNezOjS0UYihZnnZmJohwkY9tcYeYnAwj4mXHVZVeqjkIrdM6gQJ5byh3uup3XaVplR4r2yC-3nHvP0-jNQKFgvqPlEUbn1vPeY7raRdaZ-alci3u5y8kYn6A__&amp;Key-Pair-Id=APKAIE5G5CRDK6RD3PGA">AddSuppFiles-1</a> - ppt file</div>
+ 
+    </div>
+                    <div class="widget widget-ArticleDataRepositories widget-instance-Article_DryadLink">
+         
+    </div>
+
+                <div class="comments">
+    <div class="widget widget-UserCommentBody widget-instance-UserCommentBody_Article">
+        
+
+ 
+    </div>
+    <div class="widget widget-UserComment widget-instance-OUP_UserComment_Article">
+         
+    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div id="Sidebar" class="page-column page-column--right">
+    <div class="widget widget-AdBlock widget-instance-ArticlePageTopSidebar">
+        
+
+<div id="adBlockMainBodyTop" style=" ">
+    <script>
+        googletag.cmd.push(function () { googletag.display('adBlockMainBodyTop'); });
+    </script>
+</div>
+ 
+    </div>
+<div class="widget widget-dynamic " data-count="1"> 
+
+    <div class="widget-dynamic-inner-wrap">
+
+<div class="widget widget-dynamic " data-count="10"> 
+
+    <div class="widget-dynamic-inner-wrap">
+
+    <div class="widget widget-ArticleLevelMetrics widget-instance-Article_RightRailB0Article_RightRail_ArticleLevelMetrics">
+        
+
+
+
+
+
+    <div class="artmet-condensed-wrap clearfix">
+        <div class="artmet-condensed-stats clearfix">
+            <div class="artmet-item artmet-views">
+                <span class="artmet-number">255</span>
+                <span class="artmet-text">Views</span>
+            </div>
+
+            <div class="artmet-item artmet-citations">
+                <span class="artmet-number">
+                     <a href="http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&amp;SrcApp=PARTNER_APP&amp;SrcAuth=LinksAMR&amp;KeyUT=WOS:000297990700005&amp;DestLinkType=CitingArticles&amp;DestApp=ALL_WOS&amp;UsrCustomerID=61f30d8ae69c46f86624c5f98a3bc13a" target="_blank">6</a>
+                </span>
+                <span class="artmet-text">Citations</span>
+            </div>
+    
+
+            <div class="artmet-item artmet-altmetric">
+    <div class="widget widget-AltmetricLink widget-instance-ArticleLevelMetrics_AltmetricLinkSummary">
+            <!-- Altmetrics -->
+    <div id="altmetricEmbedId" runat="server" class="altmetric-embed" data-badge-type="donut" data-hide-no-mentions="false" data-doi="10.1093/dnares/dsr032"></div>
+         <script type="text/javascript" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
+</div>
+
+            </div>
+        </div>
+
+            <div class="artmet-modal-trigger-wrap clearfix">
+                <a class="artmet-modal-trigger" data-article-id="477571"><i class="icon-metrics"></i><span>View Metrics</span></a>
+            </div>
+    </div>
+        <div class="artmet-modal" id="MetricsModal">
+            <div class="artmet-modal-contents">
+                <a class="artmet-close-modal">×</a>
+            </div>
+        </div>
+
+ 
+    </div>
+    <div class="widget widget-Alerts widget-instance-Article_RightRailB0Article_RightRail_Alerts">
+        
+    <div class="alertsWidget">
+        <h3>Email alerts</h3>
+                <div class="userAlert alertType-5">
+                    <a role="link" aria-label="New issue alert" data-userloggedin="False" data-alerttype="5">New issue alert</a>
+                </div>
+                <div class="userAlert alertType-3">
+                    <a role="link" aria-label="Advance article alerts" data-userloggedin="False" data-alerttype="3">Advance article alerts</a>
+                </div>
+                <div class="userAlert alertType-1">
+                    <a role="link" aria-label="Article activity alert" data-userloggedin="False" data-alerttype="1">Article activity alert</a>
+                </div>
+                    <div class="userAlert alertType-MarketingLink">
+                <a role="link" aria-label="Receive exclusive offers and updates from Oxford Academic" data-userloggedin="False" data-additionalurl="/my-account/communication-preferences">Receive exclusive offers and updates from Oxford Academic</a>
+            </div>
+        <div class="userAlertSignUpModal reveal-modal small" data-reveal>
+            <div class="userAlertSignUp"></div>
+            <label for="alert-signup-modal-close" class="screenreader-text">Close</label>
+            <a role="button" id="alert-signup-modal-close" class="close-reveal-modal" href="javascript:;">
+                <i class="icon-general-close"></i>
+            </a>
+        </div>
+    </div>
+ 
+    </div>
+    <div class="widget widget-ArticleLinks widget-instance-Article_RightRailB0Article_RightRail_ArticleLinks">
+         
+    </div>
+    <div class="widget widget-RelatedContent widget-instance-Article_RightRailB0Article_RightRail_RelatedContent">
+         
+    </div>
+    <div class="widget widget-RelatedArticleIn widget-instance-Article_RightRailB0Article_RightRail_RelatedArticleIn">
+            <h3 class="relatedArticleIn-title">Related articles in</h3>
+    <div class="relatedArticleIn-content">
+        <ul>
+<li>
+                    <a href="http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&amp;SrcApp=PARTNER_APP&amp;SrcAuth=LinksAMR&amp;KeyUT=WOS:000297990700005&amp;DestLinkType=RelatedRecords&amp;DestApp=ALL_WOS&amp;UsrCustomerID=61f30d8ae69c46f86624c5f98a3bc13a">Web of Science</a>
+                </li>
+                <li>
+                    <a href="https://scholar.google.com/scholar?q=related:https%3a%2f%2facademic.oup.com%2fdnaresearch%2farticle%2f18%2f6%2f463%2f477571">Google Scholar</a>
+                </li>
+        </ul>
+</div>
+ 
+    </div>
+    <div class="widget widget-ArticleCitedBy widget-instance-Article_RightRailB0Article_RightRail_ArticleCitedBy">
+        <div class="rail-widget_wrap vt-articles-cited-by">
+    <h3 class="article-cited-title">Citing articles via</h3>
+    <div class="widget-links_wrap">
+            <div class="article-cited-link-wrap web-of-science">
+                <a href="http://gateway.webofknowledge.com/gateway/Gateway.cgi?GWVersion=2&amp;SrcApp=PARTNER_APP&amp;SrcAuth=LinksAMR&amp;KeyUT=WOS:000297990700005&amp;DestLinkType=CitingArticles&amp;DestApp=ALL_WOS&amp;UsrCustomerID=61f30d8ae69c46f86624c5f98a3bc13a" target="_blank">Web of Science (6)</a>
+            </div>
+                    <div class="article-cited-link-wrap google-scholar-url">
+                <a href="http://scholar.google.com/scholar?q=link:https%3A%2F%2Facademic.oup.com%2Fdnaresearch%2Farticle%2F18%2F6%2F463%2F477571" target="_blank">Google Scholar</a>
+            </div>
+                    <div class="article-cited-link-wrap crossref-citedby">
+                <a href="https://academic.oup.com/dnaresearch/crossref-citedby/477571">Crossref</a>
+            </div>
+    </div>
+</div> 
+    </div>
+    <div class="widget widget-ArticleListNewAndPopular widget-instance-Article_RightRailB0Article_RightRail_ArticleNewPopularCombined">
+            <ul class="articleListNewAndPopularCombinedView">
+<li>
+                <a href="javascript:;" class="articleListNewAndPopular-mode active" data-mode="MostRecent">Latest</a>
+            </li>
+            <li>
+                <a href="javascript:;" class="articleListNewAndPopular-mode " data-mode="MostRead">Most Read</a>
+            </li>
+            <li>
+                <a href="javascript:;" class="articleListNewAndPopular-mode " data-mode="MostCited">Most Cited</a>
+            </li>
+    </ul>
+<section class="articleListNewPopContent articleListNewAndPopular-ContentView-MostRecent hasContent"><div id="newPopularList-Article_RightRailB0Article_RightRail_ArticleNewPopularCombined" class="fb">
+
+    
+
+
+
+
+
+
+
+<div class="widget-layout widget-layout--vert">
+
+
+
+
+
+
+        <div class="widget-columns widget-col-1">
+            <div class="col">
+
+                <div class="widget-dynamic-entry">
+                    
+
+
+
+                    
+                        <a href="/dnaresearch/advance-article/doi/10.1093/dnares/dsz023/5620723?searchresult=1">
+                                                        <div class="widget-dynamic-journal-title">
+                                Sequencing of the black rockfish chromosomal genome provides insight into sperm storage in the female ovary
+                            </div>
+                        </a>
+                    <div class="widget-dynamic-journal-image-synopsis">
+                            <div class="widget-dynamic-journal-synopsis">
+                                
+                            </div> <!-- /.widget-dynamic-journal-synopsis -->
+                    </div>
+
+                </div>
+                <div class="widget-dynamic-entry">
+                    
+
+
+
+                    
+                        <a href="/dnaresearch/article/26/5/433/5588861?searchresult=1">
+                                                        <div class="widget-dynamic-journal-title">
+                                The histone modification H3 lysine 27 tri-methylation has conserved gene regulatory roles in the triplicated genome of  Brassica rapa  L.
+                            </div>
+                        </a>
+                    <div class="widget-dynamic-journal-image-synopsis">
+                            <div class="widget-dynamic-journal-synopsis">
+                                
+                            </div> <!-- /.widget-dynamic-journal-synopsis -->
+                    </div>
+
+                </div>
+                <div class="widget-dynamic-entry">
+                    
+
+
+
+                    
+                        <a href="/dnaresearch/article/26/5/423/5580662?searchresult=1">
+                                                        <div class="widget-dynamic-journal-title">
+                                The genome of  Populus alba  x  Populus tremula  var.  glandulosa  clone 84K
+                            </div>
+                        </a>
+                    <div class="widget-dynamic-journal-image-synopsis">
+                            <div class="widget-dynamic-journal-synopsis">
+                                
+                            </div> <!-- /.widget-dynamic-journal-synopsis -->
+                    </div>
+
+                </div>
+                <div class="widget-dynamic-entry">
+                    
+
+
+
+                    
+                        <a href="/dnaresearch/advance-article/doi/10.1093/dnares/dsz022/5572119?searchresult=1">
+                                                        <div class="widget-dynamic-journal-title">
+                                TASUKE+: a web-based platform for exploring genome-wide association studies results and large-scale resequencing data
+                            </div>
+                        </a>
+                    <div class="widget-dynamic-journal-image-synopsis">
+                            <div class="widget-dynamic-journal-synopsis">
+                                
+                            </div> <!-- /.widget-dynamic-journal-synopsis -->
+                    </div>
+
+                </div>
+                <div class="widget-dynamic-entry">
+                    
+
+
+
+                    
+                        <a href="/dnaresearch/article/26/5/411/5556422?searchresult=1">
+                                                        <div class="widget-dynamic-journal-title">
+                                The quagga mussel genome and the evolution of freshwater tolerance
+                            </div>
+                        </a>
+                    <div class="widget-dynamic-journal-image-synopsis">
+                            <div class="widget-dynamic-journal-synopsis">
+                                
+                            </div> <!-- /.widget-dynamic-journal-synopsis -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+</div>
+<!-- /.widget-layout-[orientation] -->
+</div>
+        </section><section class="articleListNewPopContent articleListNewAndPopular-ContentView-MostRead hide"></section><section class="articleListNewPopContent articleListNewAndPopular-ContentView-MostCited hide"></section>
+</div>
+
+    </div>
+
+</div>
+    </div>
+
+</div>    <div class="widget widget-AdBlock widget-instance-ArticlePageTopMainBodyBottom">
+        
+
+<div id="adBlockMainBodyBottom" style=" ">
+    <script>
+        googletag.cmd.push(function () { googletag.display('adBlockMainBodyBottom'); });
+    </script>
+</div>
+ 
+    </div>
+
+</div>
+
+</div>
+<input id="hfArticleTitle" name="hfArticleTitle" type="hidden" value="PlantRGS: A Web Server for the Identification of Most Suitable Candidate Reference Genes for Quantitative Gene Expression Studies in Plants | DNA Research | Oxford Academic"><input id="hfArticleLeftNavStickyOffset" name="hfArticleLeftNavStickyOffset" type="hidden" value="29">
+</div>
+<!-- /.center-inner-row no-overflow -->
+        </section>
+</div>
+    <div class="mobile-mask">
+    </div>
+    <section class="footer_wrap vt-site-footer"><script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=xa-5265518246c10183&amp;domready=1"></script><script type="text/javascript" src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&amp;render=explicit"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script><script type="text/javascript" src="//oup.silverchair-cdn.com/UI/app/jsdist/v-637087213366114614/article-page.min.js"></script><script type="text/javascript">
+        googletag.cmd.push(function () {
+            
+            googletag.pubads().setTargeting("jnlsdoi", "10.1093/dnares/dsr032");
+            googletag.enableServices();
+        });
+    </script><div class="widget widget-SitePageFooter widget-instance-SitePageFooter">
+        <div class="ad-banner ad-banner-footer">
+    <div class="widget widget-AdBlock widget-instance-FooterAd">
+        
+
+<div id="adBlockFooter" style=" ">
+    <script>
+        googletag.cmd.push(function () { googletag.display('adBlockFooter'); });
+    </script>
+</div>
+ 
+    </div>
+
+</div>
+
+    <div class="journal-footer journal-bg">
+        <div class="center-inner-row">
+
+                <div class="journal-footer-menu">
+
+                    <ul>
+<li class="link-1">
+                                    <a href="/dnaresearch/pages/About">About DNA Research</a>
+                                </li>
+                                <li class="link-2">
+                                    <a href="/dnaresearch/pages/Editorial_Board">Editorial Board</a>
+                                </li>
+                                <li class="link-3">
+                                    <a href="/dnaresearch/pages/Instructions_To_Authors">Author Guidelines</a>
+                                </li>
+                                <li class="link-4">
+                                    <a href="http://www.kazusa.or.jp/e/index.html">Contact Us</a>
+                                </li>
+                                <li class="link-5">
+                                    <a href="https://www.facebook.com/OUPAcademic">Facebook</a>
+                                </li>
+</ul>
+<ul>
+<li class="link-1">
+                                    <a href="https://twitter.com/OxfordJournals">Twitter</a>
+                                </li>
+                                <li class="link-2">
+                                    <a href="http://www.oupmediainfo.com/">Advertising and Corporate Services</a>
+                                </li>
+                                <li class="link-3">
+                                    <a href="http://science-and-mathematics-careernetwork.oxfordjournals.org">Journals Career Network</a>
+                                </li>
+
+                    </ul>
+</div>
+<!-- /.journal-footer-menu -->
+
+            <div class="journal-footer-affiliations">
+                <!-- <h3>Affiliations</h3> -->
+                    <a href="https://academic.oup.com/dh" target="">
+                        <img id="footer-logo-DNAResearch" class="journal-footer-affiliations-logo" src="//oup.silverchair-cdn.com/data/SiteBuilderAssets/Live/Images/dnaresearch/dnaresearch_f1-2068071465.svg" alt="DNA Research"></a>
+            </div>
+<!-- /.journal-footer-affiliations -->
+
+            <div class="journal-footer-colophon">
+                <ul>
+<li>Online ISSN 1756-1663</li>
+                                            <li>Print ISSN 1340-2838</li>
+                    <li>Copyright © 2019 Kazusa DNA Research Institute</li>
+                </ul>
+</div>
+<!-- /.journal-footer-colophon -->
+
+
+        </div>
+<!-- /.center-inner-row -->
+    </div>
+<!-- /.journal-footer -->
+ 
+    </div>
+
+<div class="oup-footer">
+    <div class="center-inner-row">
+    <div class="widget widget-SelfServeContent widget-instance-OupUmbrellaFooterSelfServe">
+        
+<div class="oup-footer-row journal-links">
+<div class="global-footer selfservelinks">
+<ul>
+<li>
+    <a href="/journals/pages/about_us">About Us</a>
+    </li>
+    <li>
+    <a href="/journals/pages/contact_us">Contact Us</a>
+    </li>
+    <li>
+    <a href="http://global.oup.com/jobs">Careers</a>
+    </li>
+    <li>
+    <a href="/journals/pages/help">Help</a>
+    </li>
+    <li>
+    <a href="/journals/pages/access_purchase">Access &amp; Purchase</a>
+</li>
+    <li>
+    <a href="/journals/pages/access_purchase/rights_and_permissions">Rights &amp; Permissions</a>
+    </li>
+    <li>
+    <a href="/journals/pages/open_access">Open Access</a>
+    </li>
+</ul>
+</div>
+<div class="global-footer selfservelinks">
+<h4 id="global-footer-customer services" class="title footerheader">Connect</h4>
+<ul>
+<li>
+    <a href="/my-account/communication-preferences">Join Our Mailing List</a>
+    </li>
+    <li>
+    <a href="http://blog.oup.com/">OUPblog</a>
+    </li>
+    <li>
+    <a href="http://twitter.com/oupacademic">Twitter</a>
+    </li>
+    <li>
+    <a href="https://www.facebook.com/OUPAcademic">Facebook</a>
+    </li>
+    <li>
+    <a href="http://www.youtube.com/playlist?list=PL3MAPgqN8JWioLLTkU4mlFM4-SNt-f1Xs">YouTube</a>
+    </li>
+    <li>
+    <a href="http://oupacademic.tumblr.com/">Tumblr</a>
+    </li>
+</ul>
+</div>
+<div class="global-footer selfservelinks">
+<h4>Resources</h4>
+<ul>
+<li><a href="/journals/pages/authors">Authors</a></li>
+    <li><a href="/journals/pages/librarians">Librarians</a></li>
+    <li><a href="/journals/pages/societies">Societies</a></li>
+    <li><a href="https://academic.oup.com/journals/pages/sponsorship_and_advertising">Sponsors &amp; Advertisers</a></li>
+    <li><a href="/journals/pages/press">Press &amp; Media</a></li>
+    <li><a href="/journals/pages/agents">Agents</a></li>
+</ul>
+</div>
+<div class="global-footer selfservelinks">
+<h4>Explore</h4>
+<ul>
+<li><a href="http://global.oup.com/academic">Shop OUP Academic</a></li>
+    <li><a href="http://www.oxforddictionaries.com/">Oxford Dictionaries</a></li>
+    <li><a href="http://oxfordindex.oup.com/">Oxford Index</a></li>
+    <li><a href="https://www.epigeum.com/">Epigeum</a></li>
+    <li><a href="http://global.oup.com/">OUP Worldwide</a></li>
+    <li><a href="http://www.ox.ac.uk/">University of Oxford</a></li>
+</ul>
+</div>
+<div class="OUP-mission">
+<p>Oxford University Press is a department of the University of Oxford. It furthers the University's objective of excellence in research, scholarship, and education by publishing worldwide</p>
+<img class="journal-footer-logo" src="//oup.silverchair-cdn.com/UI/app/svg/umbrella/oup-logo.svg" alt="Oxford University Press" width="150" height="42">
+</div>
+</div>
+<div class="oup-footer-row">
+<div class="oup-footer-row-links">
+<ul>
+<li>Copyright © 2019 Oxford University Press</li>
+    <li><a href="https://global.oup.com/cookiepolicy/">Cookie Policy</a></li>
+    <li><a href="https://global.oup.com/privacy">Privacy Policy</a></li>
+    <li><a href="/journals/pages/about_us/legal/notices">Legal Notice</a></li>
+    <li><a href="/journals/pages/sitemap">Site Map</a></li>
+    <li><a href="/journals/pages/about_us/legal/accessibility">Accessibility</a></li>
+    <li><a href="https://get.adobe.com/reader/">Get Adobe Reader</a></li>
+</ul>
+</div>
+</div>
+<style type="text/css">
+    /* Issue right column fix for tablet/mobile */
+    @media (max-width: 1200px) {
+    .pg_issue .widget-instance-OUP_Issue {
+    width: 100%;
+    }
+    }
+</style>
+</div>
+
+    </div>
+</div>
+<div class="ss-ui-only">
+
+</div>
+
+    </section>
+</div>
+
+
+
+    
+
+
+
+    
+
+
+    <div id="revealModal" class="reveal-modal" data-reveal>
+        <div id="revealContent"></div>
+        <a class="close-reveal-modal" href="javascript:;"><i class="icon-general-close"></i><span class="screenreader-text">Close</span></a>
+    </div>
+    <div id="NeedSubscription" class="reveal-modal small" data-reveal>
+        <div class="subscription-needed">
+            <h5>This Feature Is Available To Subscribers Only</h5>
+            <p><a href="/sign-in">Sign In</a> or <a href="/my-account/register?siteId=5275&amp;returnUrl=%2fdnaresearch%2farticle%2f18%2f6%2f463%2f477571">Create an Account</a></p>
+        </div>
+        <a class="close-reveal-modal" href="javascript:;"><i class="icon-general-close"></i><span class="screenreader-text">Close</span></a>
+    </div>
+    <div id="noAccessReveal" class="reveal-modal tiny" data-reveal>
+        <p>This PDF is available to Subscribers Only</p>
+        <a class="hide-for-article-page" id="articleLinkToPurchase" data-reveal><span>View Article Abstract &amp; Purchase Options</span></a>
+        <div class="issue-purchase-modal">
+            <p>For full access to this pdf, sign in to an existing account, or purchase an annual subscription.</p>
+        </div>
+        <a class="close-reveal-modal" href="javascript:;"><i class="icon-general-close"></i><span class="screenreader-text">Close</span></a>
+    </div>
+
+
+    
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><script type="text/javascript" src="//oup.silverchair-cdn.com/UI/app/jsdist/v-637087213368770767/footer.min.js"></script><!-- Copyright 2001-2010, IBM Corporation All rights reserved. --><script src="//ouptag.scholarlyiq.com/ntpagetag.js"></script><noscript>
+        <img src="//ouptag.scholarlyiq.com/ntpagetag.gif?js=0" height="1" width="1" border="0" hspace="0" vspace="0" alt="Scholarly IQ">
+</noscript>
+
+
+    <div class="ad-banner js-ad-riser ad-banner-riser">
+
+    <div class="widget widget-AdBlock widget-instance-RiserAd">
+        <input type="hidden" class="hfAdBlockInfo" data-divid="adBlockRiser" data-slotname="" data-targetname="" data-width="" data-height="" data-enabled-on-mobile="True" data-adprovider-typeid="1">
+</div>
+
+    </div>
+
+</body>
+</html>
